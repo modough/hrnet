@@ -1,0 +1,32 @@
+.employeesList-content #employee-table {
+  width: 100%;
+}
+td,
+th {
+  border: 1px solid #93ad18;
+  text-align: left;
+  padding: 8px;
+}
+td {
+  background-color: #93ad18;
+}
+th {
+  position: relative;
+}
+th svg {
+  position: absolute;
+  right: 10px;
+  top: 30%;
+}
+th svg:hover {
+  cursor: pointer;
+}
+thead tr:nth-child(1) {
+  background-color: #5a6f08;
+  color: #fff;
+}
+tr:nth-child(1) th {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

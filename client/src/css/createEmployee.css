@@ -1,0 +1,87 @@
+.container-content {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
+  margin: 50px 300px 20px 300px;
+}
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 650px;
+}
+.logo-container h2 {
+  font-size: 50px;
+  color: #242c03;
+  opacity: 0.8;
+}
+.logo-container img {
+  width: 500px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #93ad18;
+  border-radius: 20px;
+  padding: 50px;
+  width: 600px;
+}
+.container h2 {
+  color: #242c03;
+}
+#create-employee {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#create-employee .name,
+#create-employee .date {
+  display: flex;
+  gap: 20px;
+}
+#create-employee .address-top,
+#create-employee .address-bottom {
+  display: flex;
+  gap: 20px;
+}
+.state {
+  flex: 1;
+}
+.zipcode {
+  flex: 1;
+}
+label {
+  display: block;
+  margin: 10px;
+}
+input,
+select {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+select {
+  width: 100%;
+}
+.address {
+  margin-top: 10px;
+}
+.container button {
+  margin: 30px;
+  padding: 10px 20px;
+  background-color: #242c03;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+}
+.container button:hover {
+  font-weight: bold;
+  background-color: #3c4606;
+  cursor: pointer;
+}

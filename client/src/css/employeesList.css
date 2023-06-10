@@ -1,0 +1,12 @@
+.container-employeesList {
+  padding: 50px;
+}
+.employeesList-content .homepage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+}
+.homepage a {
+  color: #5a6f08;
+}
