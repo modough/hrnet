@@ -47,4 +47,16 @@ export const employeesListData = [
         zipcode: 80256,
         department: 'Human Resources'
     },
+    {
+        id: 5,
+        firstName: 'Binta',
+        lastName: 'Ganno',
+        birthDate: '10/02/1976',
+        startDate: '01/11/2023',
+        street: 'Monterro drive',
+        city: 'Edmond City',
+        state: 'Iowa',
+        zipcode: 80256,
+        department: 'Engineering'
+    },
 ]

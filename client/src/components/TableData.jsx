@@ -26,6 +26,4 @@ function TableData() {
         </tbody>
     )
 }
-
-
 export default TableData
