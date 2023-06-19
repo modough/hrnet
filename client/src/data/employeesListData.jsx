@@ -15,7 +15,7 @@ export const employeesListData = [
         id: 2,
         firstName: 'Mouhamed',
         lastName: 'Mbaye',
-        birthDate: '12/09/1985',
+        birthDate: '01/09/1985',
         startDate: '15/05/2023',
         street: 'Collins St',
         city: 'Calumet City',

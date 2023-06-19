@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 100px 0 50px;
+  padding: 0 50px;
   background-color: #5a6f08;
 }
 .header .current-employees {
@@ -11,11 +11,7 @@
   font-size: 20px;
   font-weight: 700;
 }
-.header .current-employees:hover {
-  transition: all 0.5s ease-in-out;
-  letter-spacing: 1px;
-}
-.title {
+.header-left .title {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,8 +23,34 @@
 #logo {
   width: 80px;
 }
-.title h1 {
+.header-left .title h1 {
   font-size: 30px;
   margin: 0;
   color: #5b7008;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+.header-right .current-employees {
+  font-size: 16px;
+  margin: 30px;
+  padding: 10px 20px;
+  background-color: #242c03;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.header-right .none {
+  display: none;
+}
+.header-right .logout {
+  background-color: #5b7008;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #242c03;
 }

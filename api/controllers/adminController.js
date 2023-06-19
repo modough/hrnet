@@ -1,9 +1,7 @@
-import adminModel from '../models/adminModel';
+import adminModel from '../models/adminModel.js';
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
-const jwt = require('jsonwebtoken');
-//---------------
-// crypter les passwords
-const bcrypt = require('bcrypt');
 
 export const signup = (req, res, next) => {
     //--------------

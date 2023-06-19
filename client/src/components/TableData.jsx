@@ -1,16 +1,27 @@
 
-import { employeesListData } from '../data/employeesListData';
+import { useEffect, useState } from 'react';
+
 
 function TableData() {
+    const [userData, setUserData] = useState(null)
+    useEffect(() => {
+        fetch('http://localhost:3001/api/employeesList')
+            .then(res => res.json())
+            .then((data) => {
+                setUserData(data);
+            })
+            .catch((err) => {
+                console.error('An error has occured : ', err);
+            });
 
-    console.log(employeesListData)
-
+    }, []);
+    console.log(userData)
     return (
         <tbody>
             {
-                employeesListData.map((data) =>
+                userData && userData.map((data) =>
                 (
-                    <tr key={data.id}>
+                    <tr key={data._id}>
                         <td>{data.firstName}</td>
                         <td>{data.lastName}</td>
                         <td>{data.birthDate}</td>

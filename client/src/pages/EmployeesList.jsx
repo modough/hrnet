@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
 import '../css/employeesList.css';
 import Table from "../components/Table";
+
 
 function EmployeeList() {
     return (
@@ -8,9 +8,6 @@ function EmployeeList() {
             <div className="employeesList-content">
                 <h1>Current Employees</h1>
                 <Table />
-                <div className='homepage'>
-                    <Link to="/">Return to Homepage</Link>
-                </div>
             </div>
         </section>
     )

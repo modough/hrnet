@@ -1,7 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 
-const sauceSchema = mongoose.Schema({
-    id: { type: String, required: true },
+const employeeSchema = mongoose.Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     birthDate: { type: String, required: true },
@@ -14,4 +13,4 @@ const sauceSchema = mongoose.Schema({
 
 });
 
-export default mongoose.model('Sauce', sauceSchema);
+export default mongoose.model('employee', employeeSchema);

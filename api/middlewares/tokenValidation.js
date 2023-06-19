@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken'
 
 //-------------------------------
 //Middleware d'authentification pour la verifcation du token envoyé par le frontend

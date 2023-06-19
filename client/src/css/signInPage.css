@@ -1,0 +1,46 @@
+.signInPage-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 250px;
+  padding: 50px;
+}
+
+.signInPage-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #93ad18;
+  border-radius: 20px;
+  padding: 50px;
+  width: 300px;
+}
+.signInPage-container h2 {
+  font-size: 20px;
+}
+#signInPage-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+}
+.signInPage-container button {
+  margin: 30px;
+  padding: 10px 20px;
+  background-color: #242c03;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+#email,
+#password {
+  padding: 10px 50px;
+}
+.email,
+.password {
+  margin-top: 20px;
+}
