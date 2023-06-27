@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import '../css/header.css'
-import logo from '../assets/logo hrnet.png'
+import logo from '../assets/hrnetLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,6 +11,7 @@ function Header() {
     const navigate = useNavigate()
     const handleLogout = () => {
         navigate('/signin')
+        localStorage.clear();
     }
     const handleClickList = () => {
         navigate('/employees')

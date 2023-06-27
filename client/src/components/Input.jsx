@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
+import '../css/input.css';
 
-function Input({ className, id, text, type, select, option, data, value, action }) {
+
+function Input({ className, id, text, type, select, option, data, value, action, errorMessage }) {
     return (
         <div className={className}>
             <label htmlFor={id}>{text}</label>
@@ -15,6 +17,10 @@ function Input({ className, id, text, type, select, option, data, value, action 
                 </select> :
                 <input onChange={action} type={type} id={id} value={value} />
             }
+            {errorMessage ?
+                <p className='errorMessage'>{errorMessage}</p> :
+                ''
+            }
         </div>
     )
 }
@@ -28,5 +34,6 @@ Input.propTypes = {
     data: PropTypes.array,
     value: PropTypes.string,
     action: PropTypes.func,
+    errorMessage: PropTypes.string,
 }
 export default Input

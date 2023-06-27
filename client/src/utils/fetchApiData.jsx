@@ -33,3 +33,30 @@ export const createEmployee = (employeeInfos) => {
 
 }
 
+
+export const adminLogin = (adminInfos) => {
+    const { email, password } = adminInfos
+    const data = JSON.stringify({
+        "email": email,
+        "password": password
+    });
+    const config = {
+        method: 'post',
+        maxBodyLength: Infinity,
+        url: `${host}/login`,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data: data
+    };
+    axios.request(config)
+        .then((response) => {
+            const result = JSON.stringify(response.data);
+            localStorage.setItem('loginResult', result)
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+}
+

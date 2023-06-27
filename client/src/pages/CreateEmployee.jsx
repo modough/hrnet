@@ -4,8 +4,13 @@ import '../css/createEmployee.css'
 import { departmentsData } from '../data/departmentsData'
 import { statesData } from '../data/statesData'
 import { createEmployee } from '../utils/fetchApiData'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClose } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom'
 
 function CreateEmployee() {
+    const [error, setError] = useState('')
+
     const [success, setSuccess] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -16,7 +21,7 @@ function CreateEmployee() {
     const [state, setState] = useState('')
     const [zipcode, setZipcode] = useState('')
     const [department, setDepartment] = useState('')
-
+    const navigate = useNavigate()
 
     const handleCreate = (e) => {
         e.preventDefault()
@@ -31,23 +36,40 @@ function CreateEmployee() {
             zipcode,
             department
         }
-        createEmployee(employeeInfos)
-        setFirstName('');
-        setLastName('');
-        setBirthDate('');
-        setStartDate('');
-        setStreet('');
-        setCity('');
-        setState('');
-        setZipcode('');
-        setDepartment('');
-        setSuccess('Employee Created!')
+        if (lastName.length < 2) {
+            return setError("Enter your lastname");
+        }
+        if (firstName.length < 2) {
+            return setError("Enter your firstname");
+        }
+        else {
+            createEmployee(employeeInfos)
+            setFirstName('');
+            setLastName('');
+            setBirthDate('');
+            setStartDate('');
+            setStreet('');
+            setCity('');
+            setState('');
+            setZipcode('');
+            setDepartment('');
+            setSuccess('Employee Created!')
+            setError('')
+        }
+    }
+    const handlecloseModal = () => {
+        navigate('/employees')
     }
     return (
         <section className="container-content">
-            <div className="container">
+            <div
+                className={success ?
+                    "container success" :
+                    "container"
+                }
+            >
                 <h2>Create Employee</h2>
-                <form action="#" id="create-employee">
+                <form id="create-employee">
                     <div className='name'>
                         <Input
                             className='first-name'
@@ -56,6 +78,7 @@ function CreateEmployee() {
                             text='First Name'
                             value={firstName}
                             action={(e) => setFirstName(e.target.value)}
+                            errorMessage={error}
                         />
                         <Input
                             className='last-name'
@@ -64,6 +87,7 @@ function CreateEmployee() {
                             text='Last Name'
                             value={lastName}
                             action={(e) => setLastName(e.target.value)}
+                            errorMessage={error}
                         />
                     </div>
                     <div className='date'>
@@ -74,6 +98,7 @@ function CreateEmployee() {
                             text='Date of Birth'
                             value={birthDate}
                             action={(e) => setBirthDate(e.target.value)}
+                            errorMessage=''
                         />
                         <Input
                             className='start-date'
@@ -82,6 +107,7 @@ function CreateEmployee() {
                             text='Start Date'
                             value={startDate}
                             action={(e) => setStartDate(e.target.value)}
+                            errorMessage=''
                         />
                     </div>
                     <div className='address-top'>
@@ -92,6 +118,7 @@ function CreateEmployee() {
                             text='Street'
                             value={street}
                             action={(e) => setStreet(e.target.value)}
+                            errorMessage=''
                         />
                         <Input
                             className='city'
@@ -100,6 +127,7 @@ function CreateEmployee() {
                             text='City'
                             value={city}
                             action={(e) => setCity(e.target.value)}
+                            errorMessage=''
                         />
                     </div>
                     <div className='address-bottom'>
@@ -111,6 +139,7 @@ function CreateEmployee() {
                             option
                             data={statesData}
                             action={(e) => setState(e.target.value)}
+                            errorMessage=''
                         />
                         <Input
                             className='zipcode'
@@ -119,6 +148,7 @@ function CreateEmployee() {
                             text='Zip Code'
                             value={zipcode}
                             action={(e) => setZipcode(e.target.value)}
+                            errorMessage=''
                         />
                     </div>
                     <Input
@@ -129,12 +159,19 @@ function CreateEmployee() {
                         option
                         data={departmentsData}
                         action={(e) => setDepartment(e.target.value)}
+                        errorMessage=''
                     />
                 </form>
                 <button onClick={handleCreate}>Save</button>
-                <div id="confirmation" className="modal">{success}</div>
-            </div>
 
+            </div>
+            {success ?
+                <div id="confirmation" className="modal-content">
+                    {success}
+                    <FontAwesomeIcon onClick={handlecloseModal} icon={faClose} className='faClose' />
+                </div> :
+                ''
+            }
         </section>
     )
 }

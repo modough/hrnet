@@ -15,7 +15,6 @@ function TableData() {
             });
 
     }, []);
-    console.log(userData)
     return (
         <tbody>
             {
