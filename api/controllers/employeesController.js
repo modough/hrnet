@@ -10,11 +10,12 @@ export const createEmployee = async (req, res, next) => {
     }
 };
 
-export const deleteEmployee = (req, res, next) => {
+export const deleteEmployee = async (req, res, next) => {
     //findByIdAndDelete() pour supprimer un objet grâce à son id
     try {
-        employeeModel.findByIdAndDelete(req.params.id)
-        res.status(200).json({ message: 'Deleted !' })
+        const foundEmployee = await employeeModel.findById(req.params.id)
+        await foundEmployee.deleteOne()
+        res.status(200).json({ message: 'Employee Deleted !' })
     }
     catch (error) {
         res.status(500).json({ error })

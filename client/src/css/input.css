@@ -1,3 +1,11 @@
 .errorMessage {
   color: red;
 }
+.birth-date,
+.start-date {
+  width: 50%;
+}
+#start-date,
+#date-of-birth {
+  width: 90%;
+}

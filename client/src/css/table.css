@@ -3,12 +3,21 @@
 }
 td,
 th {
-  border: 1px solid #93ad18;
   text-align: left;
   padding: 8px;
 }
 td {
   background-color: #93ad18;
+}
+td.delete-edit-icon {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 5px;
+}
+td.delete-edit-icon svg {
+  cursor: pointer;
+  padding: 3px 0;
 }
 th {
   position: relative;

@@ -1,20 +1,22 @@
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
+import { deleteOneEmployee, displayEmployeesList } from '../utils/fetchApiData';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+
 
 
 function TableData() {
+
     const [userData, setUserData] = useState(null)
     useEffect(() => {
-        fetch('http://localhost:3001/api/employeesList')
-            .then(res => res.json())
-            .then((data) => {
-                setUserData(data);
-            })
-            .catch((err) => {
-                console.error('An error has occured : ', err);
-            });
+        displayEmployeesList(setUserData)
 
     }, []);
+    const handleDelete = (id) => {
+        deleteOneEmployee(id)
+        alert("Employee information deleted successfully")
+        displayEmployeesList(setUserData)
+    }
     return (
         <tbody>
             {
@@ -30,6 +32,10 @@ function TableData() {
                         <td>{data.state}</td>
                         <td>{data.zipcode}</td>
                         <td>{data.department}</td>
+                        <td className='delete-edit-icon'>
+                            <FontAwesomeIcon onClick={() => handleDelete(data._id)} icon={faTrash} />
+                            <FontAwesomeIcon icon={faEdit} />
+                        </td>
                     </tr>
                 ))
             }

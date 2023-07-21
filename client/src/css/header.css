@@ -5,6 +5,9 @@
   justify-content: space-between;
   padding: 0 50px;
   background-color: #5a6f08;
+  box-shadow: 0px -7px 5px 0px rgba(0, 0, 0, 0.75) inset;
+  -webkit-box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.75) inset;
+  -moz-box-shadow: 0px -7px 5px 0px rgba(0, 0, 0, 0.75) inset;
 }
 .header .current-employees {
   color: #fff;

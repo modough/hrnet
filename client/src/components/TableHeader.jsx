@@ -15,6 +15,7 @@ function TableHeader() {
                 <th>State<FontAwesomeIcon icon={faSort} /></th>
                 <th>Zipcode<FontAwesomeIcon icon={faSort} /></th>
                 <th>Department<FontAwesomeIcon icon={faSort} /></th>
+                <th className='delete'>Actions</th>
             </tr>
         </thead>
     )
