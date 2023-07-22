@@ -84,3 +84,28 @@ export const deleteOneEmployee = (id) => {
 
 }
 
+export const updateOneEmployee = (employeeInfos) => {
+
+    const data = JSON.stringify({
+        employeeInfos
+    });
+
+    let config = {
+        method: 'put',
+        maxBodyLength: Infinity,
+        url: `${host}/employee/${employeeInfos._id}`,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data: data
+    };
+
+    axios.request(config)
+        .then((response) => {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+

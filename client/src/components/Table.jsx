@@ -4,10 +4,12 @@ import TableHeader from './TableHeader';
 
 function Table() {
     return (
-        <table id="employee-table" className="display">
-            <TableHeader />
-            <TableData />
-        </table>
+        <div className='table-container'>
+            <table id="employee-table">
+                <TableHeader />
+                <TableData />
+            </table>
+        </div>
     )
 }
 

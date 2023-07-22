@@ -35,11 +35,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
+  width: 700px;
 }
 .header-right .current-employees {
   font-size: 16px;
-  margin: 30px;
   padding: 10px 20px;
   background-color: #242c03;
   color: #fff;

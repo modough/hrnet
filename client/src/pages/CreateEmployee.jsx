@@ -4,10 +4,9 @@ import '../css/createEmployee.css'
 import { departmentsData } from '../data/departmentsData'
 import { statesData } from '../data/statesData'
 import { createEmployee } from '../utils/fetchApiData'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 import Select from '../components/Select'
+import Modal from '../components/Modal'
 
 function CreateEmployee() {
     const [errorFirst, setErrorFirst] = useState('')
@@ -43,7 +42,7 @@ function CreateEmployee() {
         setState('');
         setZipcode('');
         setDepartment('');
-        setSuccess('Employee Created!')
+        setSuccess('Employee Created !')
     }
 
     const handleCreate = (e) => {
@@ -198,13 +197,7 @@ function CreateEmployee() {
                 <button onClick={handleCreate}>Save</button>
 
             </div>
-            {success ?
-                <div id="confirmation" className="modal-content">
-                    {success}
-                    <FontAwesomeIcon onClick={handlecloseModal} icon={faClose} className='faClose' />
-                </div> :
-                ''
-            }
+            <Modal success={success} action={handlecloseModal} />
         </section>
     )
 }
