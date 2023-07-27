@@ -21,8 +21,10 @@ export const signup = (req, res, next) => {
 
 
 export const login = (req, res, next) => {
+    console.log(req.body.email)
     adminModel.findOne({ email: req.body.email })
         .then(admin => {
+            console.log(admin)
             if (!admin) {
                 return res.status(401).json({ error: 'Admin not found !' });
             }

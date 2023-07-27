@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { deleteOneEmployee, displayEmployeesList } from '../utils/fetchApiData';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Modal from './Modal';
 
 function TableData() {
@@ -35,7 +35,6 @@ function TableData() {
                             }
                             }
                             icon={faTrash} />
-                        <FontAwesomeIcon icon={faEdit} />
                     </td>
                 </tr>
             )

@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 import '../css/input.css';
 import CustomError from './CustomError';
 
-function Input({ className, id, text, type, value, action, errorMessage }) {
+function Input({ redBorder, className, id, text, type, value, action, errorMessage }) {
     return (
         <div className={className}>
             <label htmlFor={id}>{text}</label>
-            <input onChange={action} type={type} id={id} value={value} />
+            <input className={redBorder} onChange={action} type={type} id={id} value={value} />
             <CustomError errorMessage={errorMessage} />
         </div>
     )
@@ -19,5 +19,6 @@ Input.propTypes = {
     value: PropTypes.string,
     action: PropTypes.func,
     errorMessage: PropTypes.string,
+    redBorder: PropTypes.string,
 }
 export default Input

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const host = 'http://localhost:3001/api';
 export const createEmployee = (employeeInfos) => {
@@ -21,10 +22,10 @@ export const createEmployee = (employeeInfos) => {
 
 }
 
-export const adminLogin = (adminInfos) => {
-    const data = JSON.stringify({
+export const adminLogin = createAsyncThunk('adminLogin', async (adminInfos) => {
+    const data = JSON.stringify(
         adminInfos
-    });
+    );
     const config = {
         method: 'post',
         url: `${host}/login`,
@@ -33,16 +34,10 @@ export const adminLogin = (adminInfos) => {
         },
         data: data
     };
-    axios.request(config)
-        .then((response) => {
-            const result = JSON.stringify(response.data);
-            console.log(result)
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-
-}
+    const request = await axios.request(config)
+    const response = await request.data
+    return response
+})
 
 export const displayEmployeesList = (setUserData) => {
     let data = '';

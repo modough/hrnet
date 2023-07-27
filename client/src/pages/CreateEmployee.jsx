@@ -7,6 +7,7 @@ import { createEmployee } from '../utils/fetchApiData'
 import { useNavigate } from 'react-router-dom'
 import Select from '../components/Select'
 import Modal from '../components/Modal'
+import { LayoutAdmin } from '../components/LayoutAdmin'
 
 function CreateEmployee() {
     const [errorFirst, setErrorFirst] = useState('')
@@ -94,111 +95,113 @@ function CreateEmployee() {
     }
 
     return (
-        <section className="container-content">
-            <div
-                className={success ?
-                    "container success" :
-                    "container"
-                }
-            >
-                <h2>Create Employee</h2>
-                <form id="create-employee">
-                    <div className='name'>
-                        <Input
-                            className='first-name'
-                            id='first-name'
-                            type='text'
-                            text='First Name'
-                            value={firstName}
-                            action={(e) => setFirstName(e.target.value)}
-                            errorMessage={errorFirst}
-                        />
-                        <Input
-                            className='last-name'
-                            id='last-name'
-                            type='text'
-                            text='Last Name'
-                            value={lastName}
-                            action={(e) => setLastName(e.target.value)}
-                            errorMessage={errorLast}
-                        />
-                    </div>
-                    <div className='date'>
-                        <Input
-                            className='birth-date'
-                            id='date-of-birth'
-                            type='date'
-                            text='Date of Birth'
-                            value={birthDate}
-                            action={(e) => setBirthDate(e.target.value)}
-                            errorMessage={errorBirth}
-                        />
-                        <Input
-                            className='start-date'
-                            id='start-date'
-                            type='date'
-                            text='Start Date'
-                            value={startDate}
-                            action={(e) => setStartDate(e.target.value)}
-                            errorMessage={errorStart}
-                        />
-                    </div>
-                    <div className='address-top'>
-                        <Input
-                            className='street'
-                            id='street'
-                            type='text'
-                            text='Street'
-                            value={street}
-                            action={(e) => setStreet(e.target.value)}
-                            errorMessage={errorStreet}
-                        />
+        <LayoutAdmin>
+            <section className="container-content">
+                <div
+                    className={success ?
+                        "container success" :
+                        "container"
+                    }
+                >
+                    <h2>Create Employee</h2>
+                    <form id="create-employee">
+                        <div className='name'>
+                            <Input
+                                className='first-name'
+                                id='first-name'
+                                type='text'
+                                text='First Name'
+                                value={firstName}
+                                action={(e) => setFirstName(e.target.value)}
+                                errorMessage={errorFirst}
+                            />
+                            <Input
+                                className='last-name'
+                                id='last-name'
+                                type='text'
+                                text='Last Name'
+                                value={lastName}
+                                action={(e) => setLastName(e.target.value)}
+                                errorMessage={errorLast}
+                            />
+                        </div>
+                        <div className='date'>
+                            <Input
+                                className='birth-date'
+                                id='date-of-birth'
+                                type='date'
+                                text='Date of Birth'
+                                value={birthDate}
+                                action={(e) => setBirthDate(e.target.value)}
+                                errorMessage={errorBirth}
+                            />
+                            <Input
+                                className='start-date'
+                                id='start-date'
+                                type='date'
+                                text='Start Date'
+                                value={startDate}
+                                action={(e) => setStartDate(e.target.value)}
+                                errorMessage={errorStart}
+                            />
+                        </div>
+                        <div className='address-top'>
+                            <Input
+                                className='street'
+                                id='street'
+                                type='text'
+                                text='Street'
+                                value={street}
+                                action={(e) => setStreet(e.target.value)}
+                                errorMessage={errorStreet}
+                            />
 
-                        <Input
-                            className='city'
-                            id='city'
-                            type='text'
-                            text='City'
-                            value={city}
-                            action={(e) => setCity(e.target.value)}
-                            errorMessage={errorCity}
-                        />
-                    </div>
-                    <div className='address-bottom'>
+                            <Input
+                                className='city'
+                                id='city'
+                                type='text'
+                                text='City'
+                                value={city}
+                                action={(e) => setCity(e.target.value)}
+                                errorMessage={errorCity}
+                            />
+                        </div>
+                        <div className='address-bottom'>
+                            <Select
+                                className='state'
+                                id='state'
+                                text='State'
+                                select
+                                data={statesData}
+                                action={(e) => setState(e.target.value)}
+                                errorMessage={errorState}
+                            />
+                            <Input
+                                className='zipcode'
+                                id='zipcode'
+                                type='number'
+                                text='Zip Code'
+                                value={zipcode}
+                                action={(e) => setZipcode(e.target.value)}
+                                errorMessage={errorZipcode}
+                            />
+                        </div>
                         <Select
-                            className='state'
-                            id='state'
-                            text='State'
+                            className='department'
+                            id='department'
+                            text='Department'
                             select
-                            data={statesData}
-                            action={(e) => setState(e.target.value)}
-                            errorMessage={errorState}
+                            data={departmentsData}
+                            action={(e) => setDepartment(e.target.value)}
+                            errorMessage={errorDepartment}
                         />
-                        <Input
-                            className='zipcode'
-                            id='zipcode'
-                            type='number'
-                            text='Zip Code'
-                            value={zipcode}
-                            action={(e) => setZipcode(e.target.value)}
-                            errorMessage={errorZipcode}
-                        />
-                    </div>
-                    <Select
-                        className='department'
-                        id='department'
-                        text='Department'
-                        select
-                        data={departmentsData}
-                        action={(e) => setDepartment(e.target.value)}
-                        errorMessage={errorDepartment}
-                    />
-                </form>
-                <button onClick={handleCreate}>Save</button>
+                    </form>
+                    <button onClick={handleCreate}>Save</button>
 
-            </div>
-            <Modal success={success} action={handlecloseModal} />
-        </section>
+                </div>
+                <Modal success={success} action={handlecloseModal} />
+            </section>
+        </LayoutAdmin>
     )
 }
 export default CreateEmployee

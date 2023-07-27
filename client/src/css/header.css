@@ -39,13 +39,16 @@
 }
 .header-right .current-employees {
   font-size: 16px;
-  padding: 10px 20px;
-  background-color: #242c03;
   color: #fff;
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  text-shadow: 3px 3px 3px #242c03;
 }
+.header-right .current-employees:hover {
+  text-shadow: none;
+}
+
 .header-right .none {
   display: none;
 }
@@ -55,4 +58,7 @@
   font-size: 30px;
   cursor: pointer;
   color: #242c03;
+}
+.header-right .logout:hover {
+  color: #93ad18;
 }

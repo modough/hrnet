@@ -9,18 +9,20 @@ th {
   text-align: left;
   padding: 8px;
 }
-td {
+tr {
   background-color: #93ad18;
 }
 td.delete-edit-icon {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding: 50px 5px;
 }
 td.delete-edit-icon svg {
+  font-size: 20px;
   cursor: pointer;
-  padding: 3px 0;
+}
+td.delete-edit-icon svg:hover {
+  color: #fff;
 }
 th {
   position: relative;
