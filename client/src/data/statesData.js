@@ -1,5 +1,4 @@
 export const statesData = [
-    'Choose a state...',
     'Alabama',
     'Alaska',
     'Arizona',

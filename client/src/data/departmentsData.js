@@ -1,5 +1,4 @@
 export const departmentsData = [
-    '',
     'Sales',
     'Marketing',
     'Engineering',

@@ -48,52 +48,26 @@ function CreateEmployee() {
 
     const handleCreate = (e) => {
         e.preventDefault()
-        switch (true) {
-            case firstName.length < 2:
-                setErrorFirst("Enter your firstname");
-                break;
-            case lastName.length < 2:
-                setErrorLast("Enter your lastname");
-                break;
-            case isNaN(parseFloat(birthDate)):
-                setErrorBirth("Enter your Birth Date");
-                break;
-            case isNaN(parseFloat(startDate)):
-                setErrorStart("Enter your Start Date");
-                break;
-            case street.length < 2:
-                setErrorStreet("Enter your street address ");
-                break;
-            case city.length < 2:
-                setErrorCity("Enter your city address");
-                break;
-            case state === null:
-                setErrorState("Enter your state address");
-                break;
-            case zipcode.length < 2:
-                setErrorZipcode("Enter your zipcode");
-                break;
-            case department === '':
-                setErrorDepartment("Enter your department for work");
-                break;
-            case department !== '' ||
-                !zipcode.length < 2 ||
-                state !== null ||
-                !city.length < 2 ||
-                !street.length < 2 ||
-                !isNaN(parseFloat(startDate)) ||
-                !isNaN(parseFloat(birthDate)) ||
-                !lastName.length < 2 ||
-                !firstName.length < 2:
-                setErrorFirst('');
-                setErrorLast('');
-                setErrorBirth('');
-                setErrorStart('');
-                setErrorCity('');
-                setErrorState('');
-                setErrorZipcode('');
-                setErrorDepartment('');
-                clearForm();
+        if (firstName.length < 3)
+            setErrorFirst('Please enter a first name (min. 3 characters)');
+        else if (lastName.length < 3)
+            setErrorLast('Please enter a last name (min. 3 characters)');
+        else if (startDate == null)
+            setErrorBirth('Please select a valid start date.');
+        else if (birthDate == null)
+            setErrorStart('Please select a valid date of birth.');
+        else if (department == null)
+            setErrorDepartment('Please select a valid department.');
+        else if (street.length < 5)
+            setErrorStreet('Please enter your street (min. 5 characters)');
+        else if (city.length < 3)
+            setErrorCity('Please enter your city (min. 3 characters)');
+        else if (state == null)
+            setErrorState('Please select a valid state.');
+        else if (zipcode.length <= 0)
+            setErrorZipcode('Please enter a valid zip code.');
+        else {
+            clearForm()
         }
     }
 
