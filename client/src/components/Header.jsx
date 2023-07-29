@@ -3,8 +3,9 @@ import '../css/header.css'
 import logo from '../assets/hrnetLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { logout } from "../features/authSliceReducer";
 
 
 
@@ -12,10 +13,12 @@ import { useState } from "react";
 function Header() {
     const [isLoggedIn, setIsLoggedIn] = useState(true)
     const { token } = useSelector((state) => state.userReducer);
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogout = () => {
         navigate('/signin')
         setIsLoggedIn(false)
+        dispatch(logout())
     }
     const handleClickList = () => {
         navigate('/employees')

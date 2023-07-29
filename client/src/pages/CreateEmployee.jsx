@@ -79,12 +79,20 @@ function CreateEmployee() {
             case department !== '' ||
                 !zipcode.length < 2 ||
                 state !== null ||
-                city.length < 2 ||
+                !city.length < 2 ||
                 !street.length < 2 ||
                 !isNaN(parseFloat(startDate)) ||
                 !isNaN(parseFloat(birthDate)) ||
                 !lastName.length < 2 ||
                 !firstName.length < 2:
+                setErrorFirst('');
+                setErrorLast('');
+                setErrorBirth('');
+                setErrorStart('');
+                setErrorCity('');
+                setErrorState('');
+                setErrorZipcode('');
+                setErrorDepartment('');
                 clearForm();
         }
     }
