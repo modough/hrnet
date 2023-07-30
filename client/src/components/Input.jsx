@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import '../css/input.css';
 import CustomError from './CustomError';
-import Datepicker from 'date-selector-react'
+import DayPicker from 'date-selector-react/src/components/DayPicker'
 import { useState } from 'react';
 
 
@@ -10,13 +10,12 @@ function Input({ redBorder, className, id, text, type, value, action, errorMessa
     return (
         <div className={className}>
             <label htmlFor={id}>{text}</label>
-
-            {type === 'date' ?
-                isClicked &&
-                <Datepicker setIsClicked={setIsClicked}>
-                    <input className={redBorder} onChange={action} type={type} id={id} value={value} />
-                </Datepicker> :
-                <input className={redBorder} onChange={action} type={type} id={id} value={value} />
+            {isClicked &&
+                type === 'date' ?
+                <input className={redBorder} onChange={action} type={type} id={id} value={value}>
+                    <DayPicker setIsClicked={setIsClicked} />
+                </input> :
+                <input className={redBorder} onChange={action} type={type} id={id} value={value}></input>
             }
             <CustomError errorMessage={errorMessage} />
         </div>
