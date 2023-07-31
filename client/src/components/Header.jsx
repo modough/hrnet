@@ -11,6 +11,7 @@ import { logout } from "../features/authSliceReducer";
 
 
 function Header() {
+    const path = window.location.pathname
     const [isLoggedIn, setIsLoggedIn] = useState(true)
     const { token } = useSelector((state) => state.userReducer);
     const dispatch = useDispatch()
@@ -30,17 +31,17 @@ function Header() {
         token ?
             <section className="header">
                 <div className="header-left">
-                    <Link to='/signin' className="title">
+                    <Link to='/' className="title">
                         <img id='logo' src={logo} alt="logo du site" />
                         <h1>HRnet</h1>
                     </Link>
                 </div>
                 {isLoggedIn &&
                     <div className="header-right">
-                        <p onClick={handleClickList} className='current-employees '>
+                        <p onClick={handleClickList} className={path === '/' ? 'current-employees' : 'current-employees none'}>
                             View Current Employees
                         </p>
-                        <p onClick={handleClickCreate} className='current-employees '>
+                        <p onClick={handleClickCreate} className={path === '/employees' ? 'current-employees' : 'current-employees none'}>
                             Create Employee
                         </p>
                         <button onClick={handleLogout} className='logout'>

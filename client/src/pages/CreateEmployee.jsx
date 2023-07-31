@@ -153,7 +153,7 @@ function CreateEmployee() {
                                 className='state'
                                 id='state'
                                 text='State'
-                                select
+                                state
                                 data={statesData}
                                 action={(e) => setState(e.target.value)}
                                 errorMessage={errorState}
@@ -172,7 +172,6 @@ function CreateEmployee() {
                             className='department'
                             id='department'
                             text='Department'
-                            select
                             data={departmentsData}
                             action={(e) => setDepartment(e.target.value)}
                             errorMessage={errorDepartment}

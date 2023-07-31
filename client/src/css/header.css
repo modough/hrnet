@@ -48,6 +48,9 @@
 .header-right .current-employees:hover {
   text-shadow: none;
 }
+.current-employees.none {
+  display: none;
+}
 
 .header-right .none {
   display: none;
