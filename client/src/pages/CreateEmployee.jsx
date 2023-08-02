@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Input from '../components/Input'
 import '../css/createEmployee.css'
 import { departmentsData } from '../data/departmentsData'
@@ -10,6 +10,7 @@ import Modal from '../components/Modal'
 import { LayoutAdmin } from '../components/LayoutAdmin'
 
 function CreateEmployee() {
+    const [clickedDate, setClickedDate] = useState({ day: '01', month: '01', year: '1999' })
     const [errorFirst, setErrorFirst] = useState('')
     const [errorLast, setErrorLast] = useState('')
     const [errorBirth, setErrorBirth] = useState('')
@@ -29,7 +30,6 @@ function CreateEmployee() {
     const [state, setState] = useState('')
     const [zipcode, setZipcode] = useState('')
     const [department, setDepartment] = useState('')
-
 
     const clearForm = () => {
         let employeeInfos = { firstName, lastName, birthDate, startDate, street, city, state, zipcode, department }
@@ -76,6 +76,11 @@ function CreateEmployee() {
         navigate('/employees')
     }
 
+    useEffect(() => {
+        console.log(clickedDate)
+    }, [clickedDate, setClickedDate]);
+
+
     return (
         <LayoutAdmin>
             <section className="container-content">
@@ -111,11 +116,14 @@ function CreateEmployee() {
                             <Input
                                 className='birth-date'
                                 id='date-of-birth'
-                                type='date'
+                                type='text'
                                 text='Date of Birth'
-                                value={birthDate}
+                                value={`${clickedDate.day}-${clickedDate.month}-${clickedDate.year}`}
                                 action={(e) => setBirthDate(e.target.value)}
                                 errorMessage={errorBirth}
+                                clickedDate={clickedDate}
+                                setClickedDate={setClickedDate}
+                                isDatePlugin
                             />
                             <Input
                                 className='start-date'
@@ -125,6 +133,9 @@ function CreateEmployee() {
                                 value={startDate}
                                 action={(e) => setStartDate(e.target.value)}
                                 errorMessage={errorStart}
+                                clickedDate={clickedDate}
+                                setClickedDate={setClickedDate}
+
                             />
                         </div>
                         <div className='address-top'>

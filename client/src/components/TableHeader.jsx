@@ -1,20 +1,17 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSort } from '@fortawesome/free-solid-svg-icons';
-
 function TableHeader() {
 
     return (
         <thead>
             <tr>
-                <th>Firstname<FontAwesomeIcon icon={faSort} /></th>
-                <th>Lastname<FontAwesomeIcon icon={faSort} /></th>
-                <th>Date of Birth<FontAwesomeIcon icon={faSort} /></th>
-                <th>Start Date<FontAwesomeIcon icon={faSort} /></th>
-                <th>Street<FontAwesomeIcon icon={faSort} /></th>
-                <th>City<FontAwesomeIcon icon={faSort} /></th>
-                <th>State<FontAwesomeIcon icon={faSort} /></th>
-                <th>Zipcode<FontAwesomeIcon icon={faSort} /></th>
-                <th>Department<FontAwesomeIcon icon={faSort} /></th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Date of Birth</th>
+                <th>Start Date</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zipcode</th>
+                <th>Department</th>
                 <th className='delete'>Actions</th>
             </tr>
         </thead>

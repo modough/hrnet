@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { deleteOneEmployee, displayEmployeesList } from '../utils/fetchApiData';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -29,12 +28,12 @@ function TableData() {
                     <td>{data.zipcode}</td>
                     <td>{data.department}</td>
                     <td className='delete-edit-icon'>
-                        <FontAwesomeIcon
+                        <button
                             onClick={() => {
                                 <Modal action={handleDelete(data._id)} />
                             }
                             }
-                            icon={faTrash} />
+                            icon={faTrash}>{'Delete'}</button>
                     </td>
                 </tr>
             )

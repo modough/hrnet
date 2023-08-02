@@ -26,7 +26,7 @@ Select.propTypes = {
     id: PropTypes.string,
     value: PropTypes.string,
     className: PropTypes.string,
-    state: PropTypes.string,
+    state: PropTypes.bool,
     data: PropTypes.array,
     action: PropTypes.func,
 }

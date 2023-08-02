@@ -2,20 +2,39 @@ import PropTypes from 'prop-types'
 import '../css/input.css';
 import CustomError from './CustomError';
 import DayPicker from 'date-selector-react/src/components/DayPicker'
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 
-function Input({ redBorder, className, id, text, type, value, action, errorMessage }) {
-    const [isClicked, setIsClicked] = useState()
+
+function Input({ isDatePlugin, setClickedDate, clickedDate, redBorder, className, id, text, type, value, action, errorMessage }) {
+    const [isClicked, setIsClicked] = useState(false)
     return (
         <div className={className}>
             <label htmlFor={id}>{text}</label>
-            {isClicked &&
-                type === 'date' ?
-                <input className={redBorder} onChange={action} type={type} id={id} value={value}>
-                    <DayPicker setIsClicked={setIsClicked} />
-                </input> :
-                <input className={redBorder} onChange={action} type={type} id={id} value={value}></input>
+            {isDatePlugin ?
+                <Fragment>
+                    <input
+                        className={redBorder}
+                        onChange={action}
+                        onClick={() => setIsClicked(!isClicked)}
+                        type={type}
+                        id={id}
+                        value={value}
+                    />
+                    {isClicked &&
+                        <DayPicker
+                            setClickedDate={setClickedDate}
+                            clickedDate={clickedDate}
+                        />
+                    }
+                </Fragment> :
+                <input
+                    className={redBorder}
+                    onChange={action}
+                    type={type}
+                    id={id}
+                    value={value}
+                />
             }
             <CustomError errorMessage={errorMessage} />
         </div>
@@ -30,5 +49,9 @@ Input.propTypes = {
     action: PropTypes.func,
     errorMessage: PropTypes.string,
     redBorder: PropTypes.string,
+    setClickedDate: PropTypes.func,
+    clickedDate: PropTypes.object,
+    isDatePlugin: PropTypes.bool,
+
 }
 export default Input

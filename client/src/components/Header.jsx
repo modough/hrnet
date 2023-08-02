@@ -1,8 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import '../css/header.css'
 import logo from '../assets/hrnetLogo.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { logout } from "../features/authSliceReducer";
@@ -45,7 +43,7 @@ function Header() {
                             Create Employee
                         </p>
                         <button onClick={handleLogout} className='logout'>
-                            <FontAwesomeIcon icon={faSignOutAlt} />
+                            {'Logout'}
                         </button>
                     </div>}
             </section> :
