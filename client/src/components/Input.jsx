@@ -23,6 +23,7 @@ function Input({ isDatePlugin, setClickedDate, clickedDate, redBorder, className
                     />
                     {isClicked &&
                         <DayPicker
+                            locale={'en-us'}
                             setClickedDate={setClickedDate}
                             clickedDate={clickedDate}
                         />
