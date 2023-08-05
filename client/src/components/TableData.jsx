@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { deleteOneEmployee, displayEmployeesList } from '../utils/fetchApiData';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Modal from './Modal';
 
 function TableData() {
@@ -33,7 +32,7 @@ function TableData() {
                                 <Modal action={handleDelete(data._id)} />
                             }
                             }
-                            icon={faTrash}>{'Delete'}</button>
+                        >{'Delete'}</button>
                     </td>
                 </tr>
             )

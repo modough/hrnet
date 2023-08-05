@@ -1,42 +1,28 @@
 import PropTypes from 'prop-types'
 import '../css/input.css';
-import CustomError from './CustomError';
-import DayPicker from 'date-selector-react/src/components/DayPicker'
-import { Fragment, useState } from 'react';
+import CustomError from './CustomError'
 
+function Input({
+    redBorder,
+    className,
+    id,
+    text,
+    type,
+    value,
+    action,
+    errorMessage
+}) {
 
-
-function Input({ isDatePlugin, setClickedDate, clickedDate, redBorder, className, id, text, type, value, action, errorMessage }) {
-    const [isClicked, setIsClicked] = useState(false)
     return (
         <div className={className}>
             <label htmlFor={id}>{text}</label>
-            {isDatePlugin ?
-                <Fragment>
-                    <input
-                        className={redBorder}
-                        onChange={action}
-                        onClick={() => setIsClicked(!isClicked)}
-                        type={type}
-                        id={id}
-                        value={value}
-                    />
-                    {isClicked &&
-                        <DayPicker
-                            locale={'en-us'}
-                            setClickedDate={setClickedDate}
-                            clickedDate={clickedDate}
-                        />
-                    }
-                </Fragment> :
-                <input
-                    className={redBorder}
-                    onChange={action}
-                    type={type}
-                    id={id}
-                    value={value}
-                />
-            }
+            <input
+                className={redBorder}
+                onChange={action}
+                type={type}
+                id={id}
+                value={value}
+            />
             <CustomError errorMessage={errorMessage} />
         </div>
     )
@@ -49,10 +35,6 @@ Input.propTypes = {
     value: PropTypes.string,
     action: PropTypes.func,
     errorMessage: PropTypes.string,
-    redBorder: PropTypes.string,
-    setClickedDate: PropTypes.func,
-    clickedDate: PropTypes.object,
-    isDatePlugin: PropTypes.bool,
-
+    redBorder: PropTypes.string
 }
 export default Input

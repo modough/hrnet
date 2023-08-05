@@ -8,9 +8,12 @@ import { useNavigate } from 'react-router-dom'
 import Select from '../components/Select'
 import Modal from '../components/Modal'
 import { LayoutAdmin } from '../components/LayoutAdmin'
+import BirthDateInput from '../components/BirthDateInput'
+import StartDateInput from '../components/StartDateInput'
 
 function CreateEmployee() {
-    const [clickedDate, setClickedDate] = useState({ day: '01', month: '01', year: '1999' })
+    const [clickedBirthDate, setClickedBirthDate] = useState({ day: 'dd', month: 'mm', year: 'yyyy' })
+    const [clickedStartDate, setClickedStartDate] = useState({ day: 'dd', month: 'mm', year: 'yyyy' })
     const [errorFirst, setErrorFirst] = useState('')
     const [errorLast, setErrorLast] = useState('')
     const [errorBirth, setErrorBirth] = useState('')
@@ -31,18 +34,19 @@ function CreateEmployee() {
     const [zipcode, setZipcode] = useState('')
     const [department, setDepartment] = useState('')
 
-    const clearForm = () => {
-        let employeeInfos = { firstName, lastName, birthDate, startDate, street, city, state, zipcode, department }
+    const validateForm = () => {
+        let employeeInfos = {
+            firstName,
+            lastName,
+            birthDate,
+            startDate,
+            street,
+            city,
+            state,
+            zipcode,
+            department
+        }
         createEmployee(employeeInfos)
-        setFirstName('');
-        setLastName('');
-        setBirthDate('');
-        setStartDate('');
-        setStreet('');
-        setCity('');
-        setState('');
-        setZipcode('');
-        setDepartment('');
         setSuccess('Employee Created !')
     }
 
@@ -52,22 +56,22 @@ function CreateEmployee() {
             setErrorFirst('Please enter a first name (min. 3 characters)');
         else if (lastName.length < 3)
             setErrorLast('Please enter a last name (min. 3 characters)');
-        else if (startDate == null)
-            setErrorBirth('Please select a valid start date.');
-        else if (birthDate == null)
-            setErrorStart('Please select a valid date of birth.');
-        else if (department == null)
+        else if (startDate === null)
+            setErrorStart('Please select a valid start date.');
+        else if (birthDate === null)
+            setErrorBirth('Please select a valid date of birth.');
+        else if (department === '')
             setErrorDepartment('Please select a valid department.');
         else if (street.length < 5)
             setErrorStreet('Please enter your street (min. 5 characters)');
         else if (city.length < 3)
             setErrorCity('Please enter your city (min. 3 characters)');
-        else if (state == null)
+        else if (state === '')
             setErrorState('Please select a valid state.');
         else if (zipcode.length <= 0)
             setErrorZipcode('Please enter a valid zip code.');
         else {
-            clearForm()
+            validateForm()
         }
     }
 
@@ -77,8 +81,8 @@ function CreateEmployee() {
     }
 
     useEffect(() => {
-        console.log(clickedDate)
-    }, [clickedDate, setClickedDate]);
+        console.log(clickedBirthDate)
+    }, [clickedBirthDate]);
 
 
     return (
@@ -105,7 +109,7 @@ function CreateEmployee() {
                             <Input
                                 className='last-name'
                                 id='last-name'
-                                type='text'
+                                type=''
                                 text='Last Name'
                                 value={lastName}
                                 action={(e) => setLastName(e.target.value)}
@@ -113,28 +117,30 @@ function CreateEmployee() {
                             />
                         </div>
                         <div className='date'>
-                            <Input
+                            <BirthDateInput
                                 className='birth-date'
                                 id='date-of-birth'
-                                type='text'
+                                type=''
                                 text='Date of Birth'
-                                value={`${clickedDate.day}-${clickedDate.month}-${clickedDate.year}`}
-                                action={(e) => setBirthDate(e.target.value)}
+                                value={`${clickedBirthDate.day}-${clickedBirthDate.month}-${clickedBirthDate.year}`}
+                                action={(e) => {
+                                    console.log(e)
+                                    setBirthDate(e.target.value)
+                                }}
                                 errorMessage={errorBirth}
-                                clickedDate={clickedDate}
-                                setClickedDate={setClickedDate}
-                                isDatePlugin
+                                clickedDate={clickedBirthDate}
+                                setClickedDate={setClickedBirthDate}
                             />
-                            <Input
+                            <StartDateInput
                                 className='start-date'
                                 id='start-date'
-                                type='date'
+                                type='text'
                                 text='Start Date'
-                                value={startDate}
+                                value={`${clickedStartDate.day}-${clickedStartDate.month}-${clickedStartDate.year}`}
                                 action={(e) => setStartDate(e.target.value)}
                                 errorMessage={errorStart}
-                                clickedDate={clickedDate}
-                                setClickedDate={setClickedDate}
+                                clickedDate={clickedStartDate}
+                                setClickedDate={setClickedStartDate}
 
                             />
                         </div>

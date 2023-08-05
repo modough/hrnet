@@ -8,6 +8,7 @@ td,
 th {
   text-align: left;
   padding: 8px;
+  border: 1px solid #5a6f08;
 }
 tr {
   background-color: #93ad18;
@@ -17,23 +18,18 @@ td.delete-edit-icon {
   justify-content: center;
   align-items: center;
 }
-td.delete-edit-icon svg {
+td.delete-edit-icon {
   font-size: 20px;
   cursor: pointer;
 }
-td.delete-edit-icon svg:hover {
+td.delete-edit-icon button {
+  background-color: #000;
   color: #fff;
+  font-weight: 700;
 }
-th {
-  position: relative;
-}
-th svg {
-  position: absolute;
-  right: 10px;
-  top: 30%;
-}
-th svg:hover {
-  cursor: pointer;
+td.delete-edit-icon button:hover {
+  letter-spacing: 0.5px;
+  background-color: #5a6f08;
 }
 thead tr:nth-child(1) {
   background-color: #5a6f08;
