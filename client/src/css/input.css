@@ -23,7 +23,7 @@ input {
 }
 .search-input input {
   position: absolute;
-  right: 71px;
+  right: 82px;
   bottom: 2px;
 }
 .search-input label {
@@ -33,7 +33,9 @@ input {
   display: flex;
   align-items: center;
   background-color: #930c18;
+  color: #fff;
+  font-weight: 700;
   margin: 0;
-  padding: 9px;
+  padding: 9.2px 15px;
   border-radius: 5px;
 }

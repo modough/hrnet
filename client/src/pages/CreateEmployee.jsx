@@ -56,9 +56,9 @@ function CreateEmployee() {
             setErrorFirst('Please enter a first name (min. 3 characters)');
         else if (lastName.length < 3)
             setErrorLast('Please enter a last name (min. 3 characters)');
-        else if (startDate === null)
+        else if (startDate === '')
             setErrorStart('Please select a valid start date.');
-        else if (birthDate === null)
+        else if (birthDate === '')
             setErrorBirth('Please select a valid date of birth.');
         else if (department === '')
             setErrorDepartment('Please select a valid department.');
@@ -79,11 +79,10 @@ function CreateEmployee() {
     const handlecloseModal = () => {
         navigate('/employees')
     }
-
     useEffect(() => {
-        console.log(clickedBirthDate)
-    }, [clickedBirthDate]);
-
+        setBirthDate(`${clickedBirthDate.day}-${clickedBirthDate.month}-${clickedBirthDate.year}`)
+        setStartDate(`${clickedStartDate.day}-${clickedStartDate.month}-${clickedStartDate.year}`)
+    }, [clickedBirthDate, clickedStartDate])
 
     return (
         <LayoutAdmin>
@@ -121,12 +120,10 @@ function CreateEmployee() {
                                 className='birth-date'
                                 id='date-of-birth'
                                 type=''
+
                                 text='Date of Birth'
-                                value={`${clickedBirthDate.day}-${clickedBirthDate.month}-${clickedBirthDate.year}`}
-                                action={(e) => {
-                                    console.log(e)
-                                    setBirthDate(e.target.value)
-                                }}
+                                value={birthDate}
+                                action={(e) => setBirthDate(e.target.value)}
                                 errorMessage={errorBirth}
                                 clickedDate={clickedBirthDate}
                                 setClickedDate={setClickedBirthDate}
@@ -135,8 +132,9 @@ function CreateEmployee() {
                                 className='start-date'
                                 id='start-date'
                                 type='text'
+
                                 text='Start Date'
-                                value={`${clickedStartDate.day}-${clickedStartDate.month}-${clickedStartDate.year}`}
+                                value={startDate}
                                 action={(e) => setStartDate(e.target.value)}
                                 errorMessage={errorStart}
                                 clickedDate={clickedStartDate}
