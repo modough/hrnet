@@ -120,7 +120,6 @@ function CreateEmployee() {
                                 className='birth-date'
                                 id='date-of-birth'
                                 type=''
-
                                 text='Date of Birth'
                                 value={birthDate}
                                 action={(e) => setBirthDate(e.target.value)}
@@ -132,7 +131,6 @@ function CreateEmployee() {
                                 className='start-date'
                                 id='start-date'
                                 type='text'
-
                                 text='Start Date'
                                 value={startDate}
                                 action={(e) => setStartDate(e.target.value)}

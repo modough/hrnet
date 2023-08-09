@@ -48,6 +48,17 @@
   display: flex;
   gap: 20px;
 }
+.birth-date,
+.start-date {
+  position: relative;
+}
+#create-employee .date .calendar-icon {
+  position: absolute;
+  width: 15px;
+  right: 7px;
+  bottom: 27px;
+  cursor: pointer;
+}
 #create-employee .address-top,
 #create-employee .address-bottom {
   display: flex;
@@ -102,10 +113,8 @@ select {
   position: absolute;
   top: 0;
   right: 0;
-
   color: #000;
   background-color: #93ad18;
   padding: 2px 5px;
-
   cursor: pointer;
 }

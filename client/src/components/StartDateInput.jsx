@@ -3,6 +3,7 @@ import '../css/input.css';
 import CustomError from './CustomError';
 import DayPicker from 'date-selector-react/src/components/DayPicker'
 import { Fragment, useState } from 'react';
+import calendarIcon from '../assets/calendar-309.svg'
 
 function StartDateInput({
     setClickedDate,
@@ -32,6 +33,12 @@ function StartDateInput({
                     }
                     type={type}
                     id={id}
+                />
+                <img
+                    src={calendarIcon}
+                    onClick={() => setIsClicked(!isClicked)}
+                    className='calendar-icon'
+                    alt='calendar icon'
                 />
                 {isClicked &&
                     <DayPicker

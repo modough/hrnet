@@ -5,7 +5,11 @@ function Modal({ success, action }) {
         success ?
             <div id="confirmation" className="modal-content">
                 {success}
-                <button onClick={action} className='faClose'>{'Close'}</button>
+                <button
+                    onClick={action}
+                    className='faClose'>
+                    {'Close'}
+                </button>
             </div> : ''
     )
 }
