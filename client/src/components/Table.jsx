@@ -3,7 +3,7 @@ import TableData from './TableData';
 import TableHeader from './TableHeader';
 import PropTypes from 'prop-types'
 
-function Table({ userData, setUserData, filteredList, isFilter }) {
+function Table({ userData, setUserData, filteredList }) {
     return (
         <div className='table-container'>
             <table id="employee-table">
@@ -12,7 +12,7 @@ function Table({ userData, setUserData, filteredList, isFilter }) {
                     userData={userData}
                     setUserData={setUserData}
                     filteredList={filteredList}
-                    isFilter={isFilter}
+
 
                 />
             </table>
@@ -23,6 +23,6 @@ Table.propTypes = {
     userData: PropTypes.array,
     filteredList: PropTypes.array,
     setUserData: PropTypes.func,
-    isFilter: PropTypes.bool,
+
 }
 export default Table

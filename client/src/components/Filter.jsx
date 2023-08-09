@@ -6,7 +6,7 @@ import { displayEmployeesList } from '../utils/fetchApiData';
 function Filter() {
     const [userData, setUserData] = useState([])
     const [filterInput, setFilterInput] = useState()
-    const [isFilter, setIsFilter] = useState(false)
+
     useEffect(() => {
         displayEmployeesList(setUserData)
     }, []);
@@ -33,15 +33,13 @@ function Filter() {
                     className='search'
                     value={filterInput || ''}
                     onChange={(e) => {
-                        setIsFilter(!isFilter)
                         setFilterInput(e.target.value.toLowerCase())
-
                     }}
                     type='text'
                     id='search'
                 />
             </div>
-            <Table isFilter={isFilter} filteredList={filteredList} userData={userData} setUserData={setUserData} />
+            <Table filteredList={filteredList} userData={userData} setUserData={setUserData} />
         </Fragment>
     )
 }

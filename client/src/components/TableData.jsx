@@ -2,14 +2,14 @@ import PropTypes from 'prop-types'
 import { deleteOneEmployee, displayEmployeesList } from '../utils/fetchApiData';
 import Modal from './Modal';
 
-function TableData({ userData, setUserData, filteredList, isFilter }) {
+function TableData({ userData, setUserData, filteredList }) {
     const handleDelete = (id) => {
         deleteOneEmployee(id)
         displayEmployeesList(setUserData)
     }
     return (
         <tbody >
-            {isFilter ?
+            {filteredList.length > 0 ?
                 filteredList && filteredList.map((data) =>
                     <tr key={data._id}>
                         <td>{data.firstName}</td>
@@ -66,6 +66,6 @@ TableData.propTypes = {
     userData: PropTypes.array,
     filteredList: PropTypes.array,
     setUserData: PropTypes.func,
-    isFilter: PropTypes.bool,
+
 }
 export default TableData
