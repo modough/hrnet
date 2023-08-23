@@ -15,7 +15,8 @@ function BirthDateInput({
     type,
     value,
     action,
-    errorMessage
+    errorMessage,
+
 }) {
     const [isClicked, setIsClicked] = useState(false)
     return (
@@ -32,18 +33,18 @@ function BirthDateInput({
                 />
                 <img
                     src={calendarIcon}
-                    onClick={() =>
-                        setIsClicked(!isClicked)}
+                    onClick={() => setIsClicked(!isClicked)}
                     className='calendar-icon'
                     alt='calendar icon'
                 />
                 {isClicked &&
                     <DayPicker
-                        locale={'en-us'}
+                        todayBackground='green'
+                        color='#5a6f08'
+                        locale='en-US'
                         setClickedDate={setClickedDate}
                         clickedDate={clickedDate}
-                    />
-                }
+                    />}
             </Fragment>
             <CustomError errorMessage={errorMessage} />
         </div>

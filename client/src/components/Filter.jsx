@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
-import { Fragment } from 'react'
 import Table from './Table'
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { displayEmployeesList } from '../utils/fetchApiData';
+import Input from './Input';
+
 function Filter() {
     const [userData, setUserData] = useState([])
     const [filterInput, setFilterInput] = useState()
@@ -24,22 +25,23 @@ function Filter() {
     )
     console.log(filteredList)
 
-
     return (
         <Fragment>
-            <div className='search-input'>
-                <label htmlFor='search'>Search</label>
-                <input
-                    className='search'
-                    value={filterInput || ''}
-                    onChange={(e) => {
-                        setFilterInput(e.target.value.toLowerCase())
-                    }}
-                    type='text'
-                    id='search'
-                />
-            </div>
-            <Table filteredList={filteredList} userData={userData} setUserData={setUserData} />
+            <Input
+                className='search-input'
+                id='search'
+                text='Search'
+                redBorder='search'
+                value={filterInput || ''}
+                action={(e) => setFilterInput(e.target.value.toLowerCase())}
+                type='text'
+
+            />
+            <Table
+                filteredList={filteredList}
+                userData={userData}
+                setUserData={setUserData}
+            />
         </Fragment>
     )
 }

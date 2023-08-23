@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 import { deleteOneEmployee, displayEmployeesList } from '../utils/fetchApiData';
-import Modal from './Modal';
+
 
 function TableData({ userData, setUserData, filteredList }) {
     const handleDelete = (id) => {
         deleteOneEmployee(id)
         displayEmployeesList(setUserData)
     }
+
     return (
         <tbody >
             {filteredList.length > 0 ?
@@ -23,12 +24,7 @@ function TableData({ userData, setUserData, filteredList }) {
                         <td>{data.department}</td>
                         <td className='delete-edit-icon'>
                             <button
-                                onClick={() => {
-                                    <Modal
-                                        action={handleDelete(data._id)}
-                                    />
-                                }
-                                }
+                                onClick={() => handleDelete(data._id)}
                             >{'Delete'}</button>
                         </td>
                     </tr>
@@ -46,26 +42,18 @@ function TableData({ userData, setUserData, filteredList }) {
                         <td>{data.department}</td>
                         <td className='delete-edit-icon'>
                             <button
-                                onClick={() => {
-                                    <Modal
-                                        action={handleDelete(data._id)}
-                                    />
-                                }
-                                }
+                                onClick={() => handleDelete(data._id)}
                             >{'Delete'}</button>
                         </td>
                     </tr>
                 )
             }
         </tbody>
-
-
     )
 }
 TableData.propTypes = {
     userData: PropTypes.array,
     filteredList: PropTypes.array,
     setUserData: PropTypes.func,
-
 }
 export default TableData

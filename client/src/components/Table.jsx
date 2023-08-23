@@ -12,8 +12,6 @@ function Table({ userData, setUserData, filteredList }) {
                     userData={userData}
                     setUserData={setUserData}
                     filteredList={filteredList}
-
-
                 />
             </table>
         </div>

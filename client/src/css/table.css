@@ -43,3 +43,22 @@ tr:nth-child(1) th {
 .close p {
   cursor: pointer;
 }
+#confirmation {
+  display: block;
+  background-color: #3c4606;
+  padding: 50px 70px;
+  border-radius: 5px;
+  position: absolute;
+  font-weight: 700;
+  z-index: 1000;
+  color: #fff;
+}
+.faClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #000;
+  background-color: #93ad18;
+  padding: 2px 5px;
+  cursor: pointer;
+}

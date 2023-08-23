@@ -8,7 +8,6 @@ import calendarIcon from '../assets/calendar-309.svg'
 function StartDateInput({
     setClickedDate,
     clickedDate,
-    redBorder,
     className,
     id,
     text,
@@ -18,13 +17,13 @@ function StartDateInput({
     errorMessage
 }) {
     const [isClicked, setIsClicked] = useState(false)
+
     return (
         <div className={className}>
             <label htmlFor={id}>{text}</label>
             <Fragment>
                 <input
                     value={value}
-                    className={redBorder}
                     onChange={action}
                     onClick={(e) => {
                         console.log(e.target.value);
@@ -42,7 +41,9 @@ function StartDateInput({
                 />
                 {isClicked &&
                     <DayPicker
-                        locale={'en-us'}
+                        todayBackground='green'
+                        color='#5a6f08'
+                        locale='en-US'
                         setClickedDate={setClickedDate}
                         clickedDate={clickedDate}
                     />
@@ -60,7 +61,6 @@ StartDateInput.propTypes = {
     value: PropTypes.string,
     action: PropTypes.func,
     errorMessage: PropTypes.string,
-    redBorder: PropTypes.string,
     setClickedDate: PropTypes.func,
     clickedDate: PropTypes.object
 }

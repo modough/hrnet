@@ -5,9 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { logout } from "../features/authSliceReducer";
 
-
-
-
 function Header() {
     const path = window.location.pathname
     const [isLoggedIn, setIsLoggedIn] = useState(true)
@@ -43,7 +40,7 @@ function Header() {
                             Create Employee
                         </p>
                         <button onClick={handleLogout} className='logout'>
-                            {'Logout'}
+                            Logout
                         </button>
                     </div>}
             </section> :

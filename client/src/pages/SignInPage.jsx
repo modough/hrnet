@@ -37,7 +37,7 @@ function SignInPage() {
                 <img src={logo} alt="" />
             </div>
             <div className="signInPage-container">
-                <h2>Wealth Health</h2>
+                <h1>Wealth Health</h1>
                 <h2>Welcome to the Human Resources Intranet</h2>
                 <form action="#" id="signInPage-form">
                     <Input

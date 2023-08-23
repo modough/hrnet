@@ -137,7 +137,6 @@ function CreateEmployee() {
                                 errorMessage={errorStart}
                                 clickedDate={clickedStartDate}
                                 setClickedDate={setClickedStartDate}
-
                             />
                         </div>
                         <div className='address-top'>
@@ -150,7 +149,6 @@ function CreateEmployee() {
                                 action={(e) => setStreet(e.target.value)}
                                 errorMessage={errorStreet}
                             />
-
                             <Input
                                 className='city'
                                 id='city'
@@ -191,7 +189,6 @@ function CreateEmployee() {
                         />
                     </form>
                     <button onClick={handleCreate}>Save</button>
-
                 </div>
                 <Modal success={success} action={handlecloseModal} />
             </section>
