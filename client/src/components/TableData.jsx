@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types'
-import { deleteOneEmployee, displayEmployeesList } from '../utils/fetchApiData';
 
-
-function TableData({ userData, setUserData, filteredList }) {
-    const handleDelete = (id) => {
-        deleteOneEmployee(id)
-        displayEmployeesList(setUserData)
-    }
-
+function TableData({ userData, filteredList }) {
     return (
         <tbody >
             {filteredList.length > 0 ?
@@ -22,11 +15,6 @@ function TableData({ userData, setUserData, filteredList }) {
                         <td>{data.state}</td>
                         <td>{data.zipcode}</td>
                         <td>{data.department}</td>
-                        <td className='delete-edit-icon'>
-                            <button
-                                onClick={() => handleDelete(data._id)}
-                            >{'Delete'}</button>
-                        </td>
                     </tr>
                 ) :
                 userData && userData.map((data) =>
@@ -40,11 +28,6 @@ function TableData({ userData, setUserData, filteredList }) {
                         <td>{data.state}</td>
                         <td>{data.zipcode}</td>
                         <td>{data.department}</td>
-                        <td className='delete-edit-icon'>
-                            <button
-                                onClick={() => handleDelete(data._id)}
-                            >{'Delete'}</button>
-                        </td>
                     </tr>
                 )
             }

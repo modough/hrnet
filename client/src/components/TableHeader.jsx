@@ -1,5 +1,4 @@
 function TableHeader() {
-
     return (
         <thead>
             <tr>
@@ -12,7 +11,6 @@ function TableHeader() {
                 <th>State</th>
                 <th>Zipcode</th>
                 <th>Department</th>
-                <th className='delete'>Actions</th>
             </tr>
         </thead>
     )
