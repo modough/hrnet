@@ -130,7 +130,9 @@ select {
   .container h2 {
     font-size: 20px;
   }
-
+  #create-employee {
+    gap: 0;
+  }
   #create-employee .name,
   #create-employee .date,
   #create-employee .address-top,
@@ -139,6 +141,6 @@ select {
     gap: 0;
   }
   input {
-    width: 93%;
+    width: 90%;
   }
 }

@@ -9,3 +9,15 @@
   color: #5a6f08;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 768px) {
+  .container-employeesList {
+    padding: 20px;
+  }
+  .employeesList-content h1 {
+    font-size: 20px;
+  }
+  #search {
+    width: 50%;
+  }
+}
