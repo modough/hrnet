@@ -1,0 +1,31 @@
+.filter-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-select {
+  display: flex;
+  align-items: center;
+}
+.list-select select {
+  width: 70px;
+  height: 40px;
+  border: 1px solid #930c18;
+  margin: 0 5px;
+  padding: 5px;
+}
+.bottom-table {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.bottom-table-btns {
+  display: flex;
+  gap: 25px;
+}
+.bottom-table-btns button {
+  border: 1px solid #930c18;
+  border-radius: 5px;
+  cursor: pointer;
+}
