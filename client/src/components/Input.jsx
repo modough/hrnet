@@ -1,8 +1,10 @@
+/* eslint-disable react/display-name */
 import PropTypes from 'prop-types'
 import '../css/input.css';
 import CustomError from './CustomError'
+import { memo } from 'react';
 
-function Input({
+const Input = memo(({
     redBorder,
     className,
     id,
@@ -11,7 +13,7 @@ function Input({
     value,
     action,
     errorMessage
-}) {
+}) => {
 
     return (
         <div className={className}>
@@ -26,7 +28,7 @@ function Input({
             <CustomError errorMessage={errorMessage} />
         </div>
     )
-}
+})
 Input.propTypes = {
     text: PropTypes.string,
     id: PropTypes.string,

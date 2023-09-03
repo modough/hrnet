@@ -1,11 +1,12 @@
+/* eslint-disable react/display-name */
 import PropTypes from 'prop-types'
 import '../css/input.css';
 import CustomError from './CustomError';
 import DayPicker from 'date-selector-react/src/components/DayPicker'
-import { Fragment, useState } from 'react';
+import { Fragment, memo, useState } from 'react';
 import calendarIcon from '../assets/calendar-309.svg'
 
-function StartDateInput({
+const StartDateInput = memo(({
     setClickedDate,
     clickedDate,
     className,
@@ -15,7 +16,7 @@ function StartDateInput({
     value,
     action,
     errorMessage
-}) {
+}) => {
     const [isClicked, setIsClicked] = useState(false)
 
     return (
@@ -52,7 +53,7 @@ function StartDateInput({
             <CustomError errorMessage={errorMessage} />
         </div>
     )
-}
+})
 StartDateInput.propTypes = {
     text: PropTypes.string,
     id: PropTypes.string,

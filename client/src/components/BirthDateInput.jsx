@@ -1,11 +1,12 @@
+/* eslint-disable react/display-name */
 import PropTypes from 'prop-types'
 import '../css/input.css';
 import CustomError from './CustomError';
 import DayPicker from 'date-selector-react/src/components/DayPicker'
-import { Fragment, useState } from 'react';
+import { Fragment, memo, useState } from 'react';
 import calendarIcon from '../assets/calendar-309.svg'
 
-function BirthDateInput({
+const BirthDateInput = memo(({
     setClickedDate,
     clickedDate,
     redBorder,
@@ -17,7 +18,7 @@ function BirthDateInput({
     action,
     errorMessage,
 
-}) {
+}) => {
     const [isClicked, setIsClicked] = useState(false)
     return (
         <div className={className}>
@@ -49,7 +50,7 @@ function BirthDateInput({
             <CustomError errorMessage={errorMessage} />
         </div>
     )
-}
+})
 BirthDateInput.propTypes = {
     text: PropTypes.string,
     id: PropTypes.string,

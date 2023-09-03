@@ -40,6 +40,9 @@ tr:nth-child(1) th {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+thead tr th {
+  cursor: pointer;
+}
 .close p {
   cursor: pointer;
 }

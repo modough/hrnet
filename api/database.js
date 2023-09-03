@@ -1,6 +1,7 @@
 import mongoose from "mongoose"
+import 'dotenv/config'
 
-const databaseUrl = 'mongodb+srv://modough:doughnut@clusterhrnet.b30uuwp.mongodb.net/'
+const databaseUrl = process.env.MONGO_KEY
 const dbConnection = async () => {
     try {
         await mongoose.connect(databaseUrl, { useNewUrlParser: true, useUnifiedTopology: true })

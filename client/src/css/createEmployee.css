@@ -118,3 +118,27 @@ select {
 .daypicker-wrapper.none {
   display: none;
 }
+
+@media screen and (max-width: 768px) {
+  .container-content {
+    margin: 50px 0;
+  }
+  .container {
+    width: 360px;
+    padding: 20px 0;
+  }
+  .container h2 {
+    font-size: 20px;
+  }
+
+  #create-employee .name,
+  #create-employee .date,
+  #create-employee .address-top,
+  #create-employee .address-bottom {
+    flex-direction: column;
+    gap: 0;
+  }
+  input {
+    width: 93%;
+  }
+}

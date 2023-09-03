@@ -1,8 +1,10 @@
+/* eslint-disable react/display-name */
 import PropTypes from 'prop-types'
 import '../css/input.css';
+import { memo } from 'react';
 
 
-function Select({ className, id, text, data, action, value, state }) {
+const Select = memo(({ className, id, text, data, action, value, state }) => {
 
     return (
         <div className={className}>
@@ -20,7 +22,7 @@ function Select({ className, id, text, data, action, value, state }) {
 
         </div>
     )
-}
+})
 Select.propTypes = {
     text: PropTypes.string,
     id: PropTypes.string,

@@ -23,7 +23,6 @@ function Filter() {
         item.department.toLowerCase().includes(filterInput) ||
         item.zipcode.toString().toLowerCase().includes(filterInput)
     )
-    console.log(filteredList)
 
     return (
         <Fragment>

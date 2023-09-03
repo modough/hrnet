@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useCallback, useEffect, useState } from 'react'
 import Input from '../components/Input'
 import '../css/createEmployee.css'
 import { departmentsData } from '../data/departmentsData'
@@ -33,7 +34,7 @@ function CreateEmployee() {
     const [zipcode, setZipcode] = useState('')
     const [department, setDepartment] = useState('')
 
-    const validateForm = () => {
+    const validateForm = useCallback(() => {
         let employeeInfos = {
             firstName,
             lastName,
@@ -47,9 +48,10 @@ function CreateEmployee() {
         }
         createEmployee(employeeInfos)
         setSuccess('Employee Created !')
-    }
 
-    const handleCreate = (e) => {
+    }, []);
+
+    const handleCreate = useCallback((e) => {
         e.preventDefault()
         if (firstName.length < 3)
             setErrorFirst('Please enter a first name (min. 3 characters)');
@@ -72,16 +74,17 @@ function CreateEmployee() {
         else {
             validateForm()
         }
-    }
+    }, []);
 
     const navigate = useNavigate()
     const handlecloseModal = () => {
         navigate('/employees')
     }
+
     useEffect(() => {
         setBirthDate(`${clickedBirthDate.day}-${clickedBirthDate.month}-${clickedBirthDate.year}`)
         setStartDate(`${clickedStartDate.day}-${clickedStartDate.month}-${clickedStartDate.year}`)
-    }, [clickedBirthDate, clickedStartDate])
+    }, [clickedBirthDate, clickedStartDate]);
 
     return (
         <section className="container-content">
