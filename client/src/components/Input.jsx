@@ -12,7 +12,8 @@ const Input = memo(({
     type,
     value,
     action,
-    errorMessage
+    errorMessage,
+
 }) => {
 
     return (
@@ -24,6 +25,7 @@ const Input = memo(({
                 type={type}
                 id={id}
                 value={value}
+
             />
             <CustomError errorMessage={errorMessage} />
         </div>
@@ -36,6 +38,7 @@ Input.propTypes = {
     type: PropTypes.string,
     value: PropTypes.string,
     action: PropTypes.func,
+    onInput: PropTypes.func,
     errorMessage: PropTypes.string,
     redBorder: PropTypes.string
 }

@@ -1,64 +1,57 @@
-import PropTypes from 'prop-types'
-import Table from './Table'
+import PropTypes from 'prop-types';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css';
+import { FilterMatchMode } from 'primereact/api';
+import { InputText } from 'primereact/inputtext';
 import { Fragment, useEffect, useState } from 'react';
 import { displayEmployeesList } from '../utils/fetchApiData';
-import Input from './Input';
 import '../css/filter.css';
 
 function Filter() {
     const [userData, setUserData] = useState([])
-    const [filterInput, setFilterInput] = useState()
-
+    const [filterInput, setFilterInput] = useState({
+        global: {
+            value: null,
+            matchMode: FilterMatchMode.CONTAINS
+        }
+    })
+    console.log(filterInput)
     useEffect(() => {
         displayEmployeesList(setUserData)
     }, []);
 
-    const filteredList = userData.filter((item) =>
-        item.firstName.toLowerCase().includes(filterInput) ||
-        item.lastName.toLowerCase().includes(filterInput) ||
-        item.birthDate.toLowerCase().includes(filterInput) ||
-        item.startDate.toLowerCase().includes(filterInput) ||
-        item.street.toLowerCase().includes(filterInput) ||
-        item.city.toLowerCase().includes(filterInput) ||
-        item.state.toLowerCase().includes(filterInput) ||
-        item.department.toLowerCase().includes(filterInput) ||
-        item.zipcode.toString().toLowerCase().includes(filterInput)
-    )
     console.log(userData)
     return (
         <Fragment>
             <div className='filter-wrapper'>
-                <div className='list-select '>
-                    <p>Show</p>
-                    <select>
-                        <option>10</option>
-                        <option>25</option>
-                        <option>50</option>
-                        <option>100</option>
-                    </select>
-                    <p>entries</p>
-                </div>
-                <Input
-                    className='search-input'
-                    id='search'
-                    text='Search'
-                    redBorder='search'
-                    value={filterInput || ''}
-                    action={(e) => setFilterInput(e.target.value.toLowerCase())}
-                    type='text'
+                <InputText
+                    placeholder='SEARCH'
+                    className='redBorder'
+                    onInput={(e) => setFilterInput(
+                        {
+                            global: {
+                                value: e.target.value,
+                                matchMode: FilterMatchMode.CONTAINS
+                            }
+                        }
+                    )}
                 />
             </div>
-            <Table
-                filteredList={filteredList}
-                userData={userData}
-                setUserData={setUserData}
-            />
+            <DataTable value={userData} filters={filterInput} showGridlines paginator rows={10} rowsPerPageOptions={[10, 25, 50, 100]} totalRecords={5}>
+                <Column field='firstName' header='Firstname' sortable />
+                <Column field='lastName' header='Lastname' sortable />
+                <Column field='birthDate' header='Date of Birth' sortable />
+                <Column field='startDate' header='Start Date' sortable />
+                <Column field='street' header='Street' sortable />
+                <Column field='city' header='City' sortable />
+                <Column field='state' header='State' sortable />
+                <Column field='zipcode' header='Zipcode' sortable />
+                <Column field='department' header='Department' sortable />
+            </DataTable>
             <div className='bottom-table'>
-                <p>Showing {`${filteredList.length || userData.length} to ${userData.length}`} entries</p>
-                <div className='bottom-table-btns'>
-                    <button type="button">Previous</button>
-                    <button type="button">Next</button>
-                </div>
+                <p>Showing {`${filterInput.length || userData.length} to ${filterInput.length || userData.length}`} entries</p>
             </div>
         </Fragment>
     )

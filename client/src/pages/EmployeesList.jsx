@@ -8,9 +8,9 @@ function EmployeeList() {
             <div className="employeesList-content">
                 <h1>Current Employees</h1>
                 <Filter />
-                <Link to='/'>
-                    <p className='homepage'>Return</p>
-                </Link>
+                <p className='homepage'>
+                    <Link to='/'>Return</Link>
+                </p>
             </div>
         </section>
     )

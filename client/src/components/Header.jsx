@@ -1,24 +1,19 @@
 import { Link } from "react-router-dom"
 import '../css/header.css'
-import { useState, lazy, Suspense } from "react"
-
+import { useState } from "react"
+import logo from '../assets/hrnetLogo.png'
+import bgMenu from '../assets/burger-menu.svg'
 
 
 function Header() {
     const [display, setDisplay] = useState(false)
-    const logo = lazy(() => import('../assets/hrnetLogo.png'))
-    const bgMenu = lazy(() => import('../assets/burger-menu.svg'));
-
     return (
-
         <section className="header">
             <div className="header-left">
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Link to='/' className="title">
-                        <img id='logo' src={logo} alt="logo du site" />
-                        <h1>HRnet</h1>
-                    </Link>
-                </Suspense>
+                <Link to='/' className="title">
+                    <img loading="lazy" id='logo' src={logo} alt="logo du site" />
+                    <h1>HRnet</h1>
+                </Link>
             </div>
             <div className="header-right">
                 <Link to='/employees' className='current-employees'>
@@ -29,16 +24,15 @@ function Header() {
                 </Link>
             </div>
             <div className="burger-menu">
-                <Suspense fallback={<div>Loading...</div>}>
-                    <img
-                        id='menu'
-                        src={bgMenu}
-                        alt="bouton menu du site"
-                        onClick={() => {
-                            setDisplay(!display)
-                        }}
-                    />
-                </Suspense>
+                <img
+                    loading="lazy"
+                    id='menu'
+                    src={bgMenu}
+                    alt="bouton menu du site"
+                    onClick={() => {
+                        setDisplay(!display)
+                    }}
+                />
                 <ul className={display ? 'list display' : 'list'}>
                     <Link
                         to='/employees'
