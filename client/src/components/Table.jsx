@@ -7,7 +7,7 @@ import { FilterMatchMode } from 'primereact/api';
 import { InputText } from 'primereact/inputtext';
 import { Fragment, useEffect, useState } from 'react';
 import { displayEmployeesList } from '../utils/fetchApiData';
-import '../css/filter.css';
+import '../css/table.css';
 
 function Filter() {
     const [userData, setUserData] = useState([])
@@ -17,12 +17,11 @@ function Filter() {
             matchMode: FilterMatchMode.CONTAINS
         }
     })
-    console.log(filterInput)
+
     useEffect(() => {
         displayEmployeesList(setUserData)
     }, []);
 
-    console.log(userData)
     return (
         <Fragment>
             <div className='filter-wrapper'>
@@ -39,7 +38,14 @@ function Filter() {
                     )}
                 />
             </div>
-            <DataTable value={userData} filters={filterInput} showGridlines paginator rows={10} rowsPerPageOptions={[10, 25, 50, 100]} totalRecords={5}>
+            <DataTable
+                value={userData}
+                filters={filterInput}
+                showGridlines
+                paginator
+                rows={10}
+                rowsPerPageOptions={[10, 25, 50, 100]}
+            >
                 <Column field='firstName' header='Firstname' sortable />
                 <Column field='lastName' header='Lastname' sortable />
                 <Column field='birthDate' header='Date of Birth' sortable />
@@ -50,9 +56,6 @@ function Filter() {
                 <Column field='zipcode' header='Zipcode' sortable />
                 <Column field='department' header='Department' sortable />
             </DataTable>
-            <div className='bottom-table'>
-                <p>Showing {`${filterInput.length || userData.length} to ${filterInput.length || userData.length}`} entries</p>
-            </div>
         </Fragment>
     )
 }

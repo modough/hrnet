@@ -1,7 +1,7 @@
 .filter-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .list-select {
   display: flex;
@@ -16,6 +16,7 @@
 }
 .redBorder {
   border: 2px solid #930c18;
+  margin-bottom: 20px;
 }
 .redBorder::placeholder {
   font-family: "Cinzel", sans-serif;
@@ -23,18 +24,19 @@
   font-weight: 700;
   opacity: 0.5;
 }
-.bottom-table {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 10px;
+.p-dropdown-trigger,
+.p-dropdown-label.p-inputtext {
+  border: 2px solid #930c18;
 }
-.bottom-table-btns {
-  display: flex;
-  gap: 25px;
+.p-dropdown-trigger {
+  border-left: none;
 }
-.bottom-table-btns button {
-  border: 1px solid #930c18;
-  border-radius: 5px;
-  cursor: pointer;
+.p-dropdown-label.p-inputtext {
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  color: #930c18;
+  font-weight: 500;
+}
+.p-icon.p-clickable {
+  color: #930c18;
 }
