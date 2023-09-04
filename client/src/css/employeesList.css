@@ -1,6 +1,9 @@
 .container-employeesList {
   padding: 50px;
 }
+.employeesList-content {
+  position: relative;
+}
 .employeesList-content .homepage {
   display: flex;
   align-items: center;
