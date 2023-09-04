@@ -1,7 +1,6 @@
 /* eslint-disable react/display-name */
 import PropTypes from 'prop-types'
 import '../css/input.css';
-import CustomError from './CustomError'
 import { memo } from 'react';
 
 const Input = memo(({
@@ -12,8 +11,6 @@ const Input = memo(({
     type,
     value,
     action,
-    errorMessage,
-
 }) => {
 
     return (
@@ -27,7 +24,6 @@ const Input = memo(({
                 value={value}
                 required
             />
-            <CustomError errorMessage={errorMessage} />
         </div>
     )
 })

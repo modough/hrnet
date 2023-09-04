@@ -28,6 +28,7 @@ const BirthDateInput = ({
                 onClick={() => setIsClicked(!isClicked)}
                 type={type}
                 id={id}
+                required
             />
             <img
                 src={calendarIcon}

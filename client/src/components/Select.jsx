@@ -18,8 +18,6 @@ const Select = memo(({ className, id, text, data, action, value, state }) => {
                 })
                 }
             </select>
-
-
         </div>
     )
 })

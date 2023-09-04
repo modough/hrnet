@@ -31,6 +31,7 @@ const StartDateInput = ({
                 }
                 type={type}
                 id={id}
+                required
             />
             <img
                 src={calendarIcon}

@@ -15,6 +15,7 @@ function CreateEmployee() {
     const [clickedBirthDate, setClickedBirthDate] = useState({ day: 'dd', month: 'mm', year: 'yyyy' })
     const [clickedStartDate, setClickedStartDate] = useState({ day: 'dd', month: 'mm', year: 'yyyy' })
     const [success, setSuccess] = useState('')
+    const [error, setError] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [birthDate, setBirthDate] = useState('')
@@ -38,12 +39,23 @@ function CreateEmployee() {
             department
         }
         createEmployee(employeeInfos)
-        setSuccess('Employee Created !')
-
     };
-
-
-
+    const submitForm = () => {
+        const regex = "^[0-9]{1,2}\\-[0-9]{1,2}\\-[0-9]{4}$"
+        if (firstName.length &&
+            lastName.length &&
+            street.length &&
+            city.length &&
+            zipcode.length &&
+            department &&
+            state &&
+            startDate.match(regex) &&
+            birthDate.match(regex)) {
+            validateForm();
+            setSuccess('Employee Created !')
+        }
+        setError('Wrong infos please retry !')
+    }
     const navigate = useNavigate()
     const handlecloseModal = () => {
         navigate('/employees')
@@ -151,7 +163,8 @@ function CreateEmployee() {
                         action={(e) => setDepartment(e.target.value)}
                     />
                 </form>
-                <button onClick={validateForm}>Save</button>
+                <button onClick={submitForm}>Save</button>
+                <p className='errorMessage'>{error}</p>
             </div>
             <Modal success={success} action={handlecloseModal} />
         </section>
