@@ -52,28 +52,28 @@ function CreateEmployee() {
     }, []);
 
     const handleCreate = useCallback((e) => {
-        e.preventDefault()
+        e.preventDefault();
+        console.log(firstName.length)
+        console.log(lastName.length)
         if (firstName.length < 3)
-            setErrorFirst('Please enter a first name (min. 3 characters)');
-        else if (lastName.length < 3)
-            setErrorLast('Please enter a last name (min. 3 characters)');
-        else if (startDate === '')
-            setErrorStart('Please select a valid start date.');
-        else if (birthDate === '')
-            setErrorBirth('Please select a valid date of birth.');
-        else if (department === '')
-            setErrorDepartment('Please select a valid department.');
-        else if (street.length < 5)
-            setErrorStreet('Please enter your street (min. 5 characters)');
-        else if (city.length < 3)
-            setErrorCity('Please enter your city (min. 3 characters)');
-        else if (state === '')
-            setErrorState('Please select a valid state.');
-        else if (zipcode.length <= 0)
-            setErrorZipcode('Please enter a valid zip code.');
-        else {
-            validateForm()
-        }
+            return setErrorFirst('Please enter a first name (min. 3 characters)');
+        if (lastName.length < 3)
+            return setErrorLast('Please enter a last name (min. 3 characters)');
+        if (startDate === '')
+            return setErrorStart('Please select a valid start date.');
+        if (birthDate === '')
+            return setErrorBirth('Please select a valid date of birth.');
+        if (department === '')
+            return setErrorDepartment('Please select a valid department.');
+        if (street.length < 5)
+            return setErrorStreet('Please enter your street (min. 5 characters)');
+        if (city.length < 3)
+            return setErrorCity('Please enter your city (min. 3 characters)');
+        if (state === '')
+            return setErrorState('Please select a valid state.');
+        if (zipcode.length <= 0)
+            return setErrorZipcode('Please enter a valid zip code.');
+        return validateForm()
     }, []);
 
     const navigate = useNavigate()
@@ -102,8 +102,11 @@ function CreateEmployee() {
                             id='first-name'
                             type='text'
                             text='First Name'
-                            value={firstName}
-                            action={(e) => setFirstName(e.target.value)}
+                            value={firstName || ''}
+                            action={(e) => {
+                                console.log(e.target.value);
+                                setFirstName(e.target.value)
+                            }}
                             errorMessage={errorFirst}
                         />
                         <Input
@@ -111,7 +114,7 @@ function CreateEmployee() {
                             id='last-name'
                             type=''
                             text='Last Name'
-                            value={lastName}
+                            value={lastName || ''}
                             action={(e) => setLastName(e.target.value)}
                             errorMessage={errorLast}
                         />
@@ -122,7 +125,7 @@ function CreateEmployee() {
                             id='date-of-birth'
                             type=''
                             text='Date of Birth'
-                            value={birthDate}
+                            value={birthDate || ''}
                             action={(e) => setBirthDate(e.target.value)}
                             errorMessage={errorBirth}
                             clickedDate={clickedBirthDate}
@@ -133,7 +136,7 @@ function CreateEmployee() {
                             id='start-date'
                             type='text'
                             text='Start Date'
-                            value={startDate}
+                            value={startDate || ''}
                             action={(e) => setStartDate(e.target.value)}
                             errorMessage={errorStart}
                             clickedDate={clickedStartDate}
@@ -146,7 +149,7 @@ function CreateEmployee() {
                             id='street'
                             type='text'
                             text='Street'
-                            value={street}
+                            value={street || ''}
                             action={(e) => setStreet(e.target.value)}
                             errorMessage={errorStreet}
                         />
@@ -155,7 +158,7 @@ function CreateEmployee() {
                             id='city'
                             type='text'
                             text='City'
-                            value={city}
+                            value={city || ''}
                             action={(e) => setCity(e.target.value)}
                             errorMessage={errorCity}
                         />
@@ -175,7 +178,7 @@ function CreateEmployee() {
                             id='zipcode'
                             type='number'
                             text='Zip Code'
-                            value={zipcode}
+                            value={zipcode || ''}
                             action={(e) => setZipcode(e.target.value)}
                             errorMessage={errorZipcode}
                         />

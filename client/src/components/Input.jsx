@@ -25,7 +25,7 @@ const Input = memo(({
                 type={type}
                 id={id}
                 value={value}
-
+                required
             />
             <CustomError errorMessage={errorMessage} />
         </div>
