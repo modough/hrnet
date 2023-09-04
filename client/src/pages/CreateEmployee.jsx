@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Input from '../components/Input'
 import '../css/createEmployee.css'
 import { departmentsData } from '../data/departmentsData'
@@ -14,15 +14,6 @@ import StartDateInput from '../components/StartDateInput'
 function CreateEmployee() {
     const [clickedBirthDate, setClickedBirthDate] = useState({ day: 'dd', month: 'mm', year: 'yyyy' })
     const [clickedStartDate, setClickedStartDate] = useState({ day: 'dd', month: 'mm', year: 'yyyy' })
-    const [errorFirst, setErrorFirst] = useState('')
-    const [errorLast, setErrorLast] = useState('')
-    const [errorBirth, setErrorBirth] = useState('')
-    const [errorStart, setErrorStart] = useState('')
-    const [errorStreet, setErrorStreet] = useState('')
-    const [errorCity, setErrorCity] = useState('')
-    const [errorState, setErrorState] = useState('')
-    const [errorZipcode, setErrorZipcode] = useState('')
-    const [errorDepartment, setErrorDepartment] = useState('')
     const [success, setSuccess] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -34,7 +25,7 @@ function CreateEmployee() {
     const [zipcode, setZipcode] = useState('')
     const [department, setDepartment] = useState('')
 
-    const validateForm = useCallback(() => {
+    const validateForm = () => {
         let employeeInfos = {
             firstName,
             lastName,
@@ -49,32 +40,9 @@ function CreateEmployee() {
         createEmployee(employeeInfos)
         setSuccess('Employee Created !')
 
-    }, []);
+    };
 
-    const handleCreate = useCallback((e) => {
-        e.preventDefault();
-        console.log(firstName.length)
-        console.log(lastName.length)
-        if (firstName.length < 3)
-            return setErrorFirst('Please enter a first name (min. 3 characters)');
-        if (lastName.length < 3)
-            return setErrorLast('Please enter a last name (min. 3 characters)');
-        if (startDate === '')
-            return setErrorStart('Please select a valid start date.');
-        if (birthDate === '')
-            return setErrorBirth('Please select a valid date of birth.');
-        if (department === '')
-            return setErrorDepartment('Please select a valid department.');
-        if (street.length < 5)
-            return setErrorStreet('Please enter your street (min. 5 characters)');
-        if (city.length < 3)
-            return setErrorCity('Please enter your city (min. 3 characters)');
-        if (state === '')
-            return setErrorState('Please select a valid state.');
-        if (zipcode.length <= 0)
-            return setErrorZipcode('Please enter a valid zip code.');
-        return validateForm()
-    }, []);
+
 
     const navigate = useNavigate()
     const handlecloseModal = () => {
@@ -107,7 +75,6 @@ function CreateEmployee() {
                                 console.log(e.target.value);
                                 setFirstName(e.target.value)
                             }}
-                            errorMessage={errorFirst}
                         />
                         <Input
                             className='last-name'
@@ -116,7 +83,6 @@ function CreateEmployee() {
                             text='Last Name'
                             value={lastName || ''}
                             action={(e) => setLastName(e.target.value)}
-                            errorMessage={errorLast}
                         />
                     </div>
                     <div className='date'>
@@ -127,7 +93,6 @@ function CreateEmployee() {
                             text='Date of Birth'
                             value={birthDate || ''}
                             action={(e) => setBirthDate(e.target.value)}
-                            errorMessage={errorBirth}
                             clickedDate={clickedBirthDate}
                             setClickedDate={setClickedBirthDate}
                         />
@@ -138,7 +103,6 @@ function CreateEmployee() {
                             text='Start Date'
                             value={startDate || ''}
                             action={(e) => setStartDate(e.target.value)}
-                            errorMessage={errorStart}
                             clickedDate={clickedStartDate}
                             setClickedDate={setClickedStartDate}
                         />
@@ -151,7 +115,6 @@ function CreateEmployee() {
                             text='Street'
                             value={street || ''}
                             action={(e) => setStreet(e.target.value)}
-                            errorMessage={errorStreet}
                         />
                         <Input
                             className='city'
@@ -160,7 +123,6 @@ function CreateEmployee() {
                             text='City'
                             value={city || ''}
                             action={(e) => setCity(e.target.value)}
-                            errorMessage={errorCity}
                         />
                     </div>
                     <div className='address-bottom'>
@@ -171,7 +133,6 @@ function CreateEmployee() {
                             state
                             data={statesData}
                             action={(e) => setState(e.target.value)}
-                            errorMessage={errorState}
                         />
                         <Input
                             className='zipcode'
@@ -180,7 +141,6 @@ function CreateEmployee() {
                             text='Zip Code'
                             value={zipcode || ''}
                             action={(e) => setZipcode(e.target.value)}
-                            errorMessage={errorZipcode}
                         />
                     </div>
                     <Select
@@ -189,10 +149,9 @@ function CreateEmployee() {
                         text='Department'
                         data={departmentsData}
                         action={(e) => setDepartment(e.target.value)}
-                        errorMessage={errorDepartment}
                     />
                 </form>
-                <button onClick={handleCreate}>Save</button>
+                <button onClick={validateForm}>Save</button>
             </div>
             <Modal success={success} action={handlecloseModal} />
         </section>

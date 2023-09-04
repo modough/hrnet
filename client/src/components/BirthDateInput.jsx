@@ -1,12 +1,11 @@
 /* eslint-disable react/display-name */
 import PropTypes from 'prop-types'
 import '../css/input.css';
-import CustomError from './CustomError';
 import DayPicker from 'date-selector-react/src/components/DayPicker'
-import { Fragment, memo, useState } from 'react';
+import { useState } from 'react';
 import calendarIcon from '../assets/calendar-309.svg'
 
-const BirthDateInput = memo(({
+const BirthDateInput = ({
     setClickedDate,
     clickedDate,
     redBorder,
@@ -16,41 +15,37 @@ const BirthDateInput = memo(({
     type,
     value,
     action,
-    errorMessage,
-
 }) => {
     const [isClicked, setIsClicked] = useState(false)
     return (
+
         <div className={className}>
             <label htmlFor={id}>{text}</label>
-            <Fragment>
-                <input
-                    value={value}
-                    className={redBorder}
-                    onChange={action}
-                    onClick={() => setIsClicked(!isClicked)}
-                    type={type}
-                    id={id}
-                />
-                <img
-                    src={calendarIcon}
-                    onClick={() => setIsClicked(!isClicked)}
-                    className='calendar-icon'
-                    alt='calendar icon'
-                />
-                {isClicked &&
-                    <DayPicker
-                        todayBackground='green'
-                        color='#5a6f08'
-                        locale='en-US'
-                        setClickedDate={setClickedDate}
-                        clickedDate={clickedDate}
-                    />}
-            </Fragment>
-            <CustomError errorMessage={errorMessage} />
+            <input
+                value={value}
+                className={redBorder}
+                onChange={action}
+                onClick={() => setIsClicked(!isClicked)}
+                type={type}
+                id={id}
+            />
+            <img
+                src={calendarIcon}
+                onClick={() => setIsClicked(!isClicked)}
+                className='calendar-icon birth'
+                alt='calendar icon'
+            />
+            {isClicked &&
+                <DayPicker
+                    todayBackground='green'
+                    color='#5a6f08'
+                    locale='en-US'
+                    setClickedDate={setClickedDate}
+                    clickedDate={clickedDate}
+                />}
         </div>
     )
-})
+}
 BirthDateInput.propTypes = {
     text: PropTypes.string,
     id: PropTypes.string,
@@ -58,7 +53,6 @@ BirthDateInput.propTypes = {
     type: PropTypes.string,
     value: PropTypes.string,
     action: PropTypes.func,
-    errorMessage: PropTypes.string,
     redBorder: PropTypes.string,
     setClickedDate: PropTypes.func,
     clickedDate: PropTypes.object

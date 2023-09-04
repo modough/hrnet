@@ -30,7 +30,7 @@
   background-color: #93ad18;
   border-radius: 10px;
   padding: 50px 155px;
-  width: 600px;
+  width: 300px;
 }
 .container h2 {
   color: #242c03;
@@ -40,10 +40,13 @@
   flex-direction: column;
   gap: 20px;
 }
-#create-employee .name,
-#create-employee .date {
+#create-employee .name {
   display: flex;
   gap: 20px;
+}
+#create-employee .date {
+  display: flex;
+  gap: 10px;
 }
 .birth-date,
 .start-date {
@@ -52,10 +55,13 @@
 #create-employee .date .calendar-icon {
   position: absolute;
   width: 15px;
-  right: 7px;
-  bottom: 27px;
   cursor: pointer;
 }
+#create-employee .date .calendar-icon {
+  right: 15px;
+  bottom: 10px;
+}
+
 #create-employee .address-top,
 #create-employee .address-bottom {
   display: flex;
@@ -82,6 +88,7 @@ select {
 }
 select {
   width: 100%;
+  height: 36px;
 }
 .address {
   margin-top: 10px;
