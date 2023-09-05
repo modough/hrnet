@@ -38,9 +38,9 @@ const BirthDateInput = memo(({
             />
             {isClicked &&
                 <DayPicker
-                    todayBackground='green'
+                    todayBackground='gray'
                     color='#5a6f08'
-                    locale='en-US'
+                    locale='fr-FR'
                     setClickedDate={setClickedDate}
                     clickedDate={clickedDate}
                 />}

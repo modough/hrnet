@@ -1,6 +1,8 @@
+/* eslint-disable react/display-name */
 import PropTypes from 'prop-types'
+import { memo } from 'react'
 
-function Modal({ success, action }) {
+const Modal = memo(({ success, action }) => {
     return (
         success ?
             <div id="confirmation" className="modal-content">
@@ -12,7 +14,7 @@ function Modal({ success, action }) {
                 </button>
             </div> : ''
     )
-}
+})
 Modal.propTypes = {
     success: PropTypes.string,
     action: PropTypes.func,
