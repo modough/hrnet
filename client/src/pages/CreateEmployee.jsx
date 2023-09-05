@@ -26,7 +26,7 @@ function CreateEmployee() {
     const [zipcode, setZipcode] = useState('')
     const [department, setDepartment] = useState('')
 
-    const validateForm = () => {
+    const submitForm = () => {
         let employeeInfos = {
             firstName,
             lastName,
@@ -40,18 +40,18 @@ function CreateEmployee() {
         }
         createEmployee(employeeInfos)
     };
-    const submitForm = () => {
+    const validateForm = () => {
         const regex = "^[0-9]{1,2}\\-[0-9]{1,2}\\-[0-9]{4}$"
-        if (firstName.length &&
-            lastName.length &&
-            street.length &&
-            city.length &&
-            zipcode.length &&
+        if (firstName.length > 3 &&
+            lastName.length > 3 &&
+            street.length > 3 &&
+            city.length > 3 &&
+            zipcode.length > 3 &&
             department &&
             state &&
             startDate.match(regex) &&
             birthDate.match(regex)) {
-            validateForm();
+            submitForm();
             setSuccess('Employee Created !')
         }
         setError('Wrong infos please retry !')
@@ -163,7 +163,7 @@ function CreateEmployee() {
                         action={(e) => setDepartment(e.target.value)}
                     />
                 </form>
-                <button onClick={submitForm}>Save</button>
+                <button onClick={validateForm}>Save</button>
                 <p className='errorMessage'>{error}</p>
             </div>
             <Modal success={success} action={handlecloseModal} />

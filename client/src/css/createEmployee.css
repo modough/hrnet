@@ -18,8 +18,7 @@
   justify-content: center;
   background-color: #93ad18;
   border-radius: 10px;
-  padding: 50px 155px;
-  width: 500px;
+  padding: 100px 150px;
 }
 .container h2 {
   color: #242c03;
@@ -31,9 +30,12 @@
 }
 
 #create-employee .date,
-#create-employee .name {
+#create-employee .name,
+#create-employee .address-top,
+#create-employee .address-bottom {
   display: flex;
   gap: 20px;
+  width: 100%;
 }
 .birth-date,
 .start-date {
@@ -47,12 +49,6 @@
 #create-employee .date .calendar-icon {
   right: 15px;
   bottom: 10px;
-}
-
-#create-employee .address-top,
-#create-employee .address-bottom {
-  display: flex;
-  gap: 20px;
 }
 .state {
   flex: 1;
@@ -118,27 +114,31 @@ select {
     margin: 50px 0;
   }
   .container {
-    width: 360px;
     padding: 20px 0;
   }
   .container h2 {
     font-size: 20px;
   }
   #create-employee {
+    align-items: center;
     gap: 0;
   }
   #create-employee .name,
   #create-employee .date,
   #create-employee .address-top,
   #create-employee .address-bottom {
-    padding: 0 80px;
+    width: auto;
+    padding: 0 30px;
     flex-direction: column;
     gap: 0;
   }
   .department {
-    padding: 0 80px;
+    padding: 0 30px;
+  }
+  select {
+    width: auto;
   }
   input {
-    width: 90%;
+    width: auto;
   }
 }

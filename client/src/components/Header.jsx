@@ -11,7 +11,7 @@ function Header() {
         <section className="header">
             <div className="header-left">
                 <Link to='/' className="title">
-                    <img loading="lazy" id='logo' src={logo} alt="logo du site" />
+                    <img id='logo' src={logo} alt="logo du site" />
                     <h1>HRnet</h1>
                 </Link>
             </div>
