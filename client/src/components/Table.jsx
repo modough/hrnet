@@ -43,7 +43,7 @@ function Table() {
                 filters={filterInput}
                 showGridlines
                 paginator
-                rows={4}
+                rows={10}
                 rowsPerPageOptions={[10, 25, 50, 100]}
             >
                 <Column field='firstName' header='Firstname' sortable />

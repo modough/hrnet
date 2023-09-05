@@ -1,0 +1,1 @@
+declare module 'date-selector-react/src/components/DayPicker';
