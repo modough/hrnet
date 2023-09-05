@@ -9,7 +9,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { displayEmployeesList } from '../utils/fetchApiData';
 import '../css/table.css';
 
-function Filter() {
+function Table() {
     const [userData, setUserData] = useState([])
     const [filterInput, setFilterInput] = useState({
         global: {
@@ -59,8 +59,8 @@ function Filter() {
         </Fragment>
     )
 }
-Filter.propTypes = {
+Table.propTypes = {
     userData: PropTypes.array,
     setUserData: PropTypes.func,
 }
-export default Filter
+export default Table

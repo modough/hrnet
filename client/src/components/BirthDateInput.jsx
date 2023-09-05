@@ -2,10 +2,10 @@
 import PropTypes from 'prop-types'
 import '../css/input.css';
 import DayPicker from 'date-selector-react/src/components/DayPicker'
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import calendarIcon from '../assets/calendar-309.svg'
 
-const BirthDateInput = ({
+const BirthDateInput = memo(({
     setClickedDate,
     clickedDate,
     redBorder,
@@ -46,7 +46,7 @@ const BirthDateInput = ({
                 />}
         </div>
     )
-}
+});
 BirthDateInput.propTypes = {
     text: PropTypes.string,
     id: PropTypes.string,

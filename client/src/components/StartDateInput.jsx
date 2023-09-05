@@ -1,12 +1,11 @@
 /* eslint-disable react/display-name */
 import PropTypes from 'prop-types'
 import '../css/input.css';
-
 import DayPicker from 'date-selector-react/src/components/DayPicker'
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import calendarIcon from '../assets/calendar-309.svg'
 
-const StartDateInput = ({
+const StartDateInput = memo(({
     setClickedDate,
     clickedDate,
     className,
@@ -50,7 +49,7 @@ const StartDateInput = ({
             }
         </div>
     )
-}
+})
 StartDateInput.propTypes = {
     text: PropTypes.string,
     id: PropTypes.string,
