@@ -8,7 +8,7 @@ function App() {
   const CreateEmployee = lazy(() => import('./pages/CreateEmployee'));
   return (
     <Router>
-      <Suspense fallback={<div>Chargement...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <Header />
         <Routes>
           <Route path='/' element={<CreateEmployee />} />

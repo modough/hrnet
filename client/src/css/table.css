@@ -25,11 +25,11 @@
   opacity: 0.5;
 }
 .p-datatable .p-datatable-thead > tr > th {
-  color: #000;
+  color: #fff;
   background: #5a6f08;
 }
 .p-datatable .p-sortable-column .p-sortable-column-icon {
-  color: #000;
+  color: #fff;
 }
 .p-datatable
   .p-sortable-column:not(.p-highlight):not(.p-sortable-disabled):hover {

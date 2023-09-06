@@ -82,10 +82,7 @@ function CreateEmployee() {
                             type='text'
                             text='First Name'
                             value={firstName || ''}
-                            action={(e) => {
-                                console.log(e.target.value);
-                                setFirstName(e.target.value)
-                            }}
+                            action={(e) => setFirstName(e.target.value)}
                         />
                         <Input
                             className='last-name'

@@ -45,9 +45,17 @@ function Table() {
                 paginator
                 rows={3}
                 rowsPerPageOptions={[10, 25, 50, 100]}
-                paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+                paginatorTemplate="
+                RowsPerPageDropdown 
+                FirstPageLink 
+                PrevPageLink 
+                CurrentPageReport 
+                NextPageLink 
+                LastPageLink"
                 totalRecords={userData.length}
-                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                currentPageReportTemplate="
+                Showing {first} to {last} 
+                of {totalRecords} entries"
             >
                 <Column field='firstName' header='Firstname' sortable />
                 <Column field='lastName' header='Lastname' sortable />

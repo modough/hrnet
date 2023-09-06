@@ -36,9 +36,7 @@ function Header() {
                 <ul className={display ? 'list display' : 'list'}>
                     <Link
                         to='/employees'
-                        onClick={() => {
-                            setDisplay(!display)
-                        }}
+                        onClick={() => setDisplay(!display)}
                     >
                         Employees List
                     </Link>

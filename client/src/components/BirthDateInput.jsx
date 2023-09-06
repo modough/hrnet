@@ -18,7 +18,6 @@ const BirthDateInput = memo(({
 }) => {
     const [isClicked, setIsClicked] = useState(false)
     return (
-
         <div className={className}>
             <label htmlFor={id}>{text}</label>
             <input
